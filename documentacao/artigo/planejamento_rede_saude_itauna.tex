@@ -1,0 +1,990 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ---------- idioma e fontes
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\IfFileExists{portuges.ldf}{\usepackage[brazilian]{babel}}{\usepackage[provide=*,brazilian]{babel}}
+\IfFileExists{newtxtext.sty}{\usepackage{newtxtext}\usepackage{newtxmath}}{\usepackage{mathptmx}\usepackage{amssymb}}
+\usepackage{amsmath,mathtools}
+
+% ---------- pagina (ABNT: 3 cm sup./esq., 2 cm inf./dir.)
+\usepackage[top=3cm,left=3cm,bottom=2cm,right=2cm,headheight=15pt,headsep=0.75cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+% ---------- paragrafos nunca divididos entre paginas
+\interlinepenalty=10000
+\clubpenalty=10000
+\widowpenalty=10000
+\postdisplaypenalty=10000
+\displaywidowpenalty=10000
+\predisplaypenalty=10000
+\raggedbottom
+
+% ---------- tabelas, figuras, legendas
+\usepackage{graphicx,longtable}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{booktabs,tabularx,array}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\captionsetup{font={small},labelsep=endash,justification=centering,skip=6pt}
+\captionsetup[table]{position=top}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabela}
+\newcommand{\fonte}[1]{\par\vspace{4pt}{\footnotesize\centering Fonte: #1\par}}
+\newcommand{\nota}[1]{\par\vspace{2pt}\noindent\begin{minipage}{\linewidth}\footnotesize\setlength{\parindent}{0pt}Nota: #1\end{minipage}\par}
+\setlength{\textfloatsep}{14pt plus 2pt minus 2pt}
+\setlength{\floatsep}{14pt plus 2pt minus 2pt}
+
+% ---------- titulos (ABNT: numeracao progressiva, alinhados a esquerda)
+\usepackage{titlesec}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\titleformat{\chapter}{\normalfont\bfseries\MakeUppercase}{\thechapter}{0.5em}{}
+\titleformat{name=\chapter,numberless}{\normalfont\bfseries\filcenter}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{1.5\baselineskip}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.5\baselineskip}{\baselineskip}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{1.5\baselineskip}{\baselineskip}
+\titleformat{\subsubsection}{\normalfont\bfseries\itshape}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{1.5\baselineskip}{\baselineskip}
+\newcommand{\pretextualchapter}[1]{\clearpage\chapter*{#1}}
+
+% ---------- sumario e listas
+\usepackage{tocloft}
+\AtBeginDocument{%
+  \renewcommand{\contentsname}{SUMÁRIO}%
+  \renewcommand{\listfigurename}{LISTA DE FIGURAS}%
+  \renewcommand{\listtablename}{LISTA DE TABELAS}%
+  \renewcommand{\figurename}{Figura}%
+  \renewcommand{\tablename}{Tabela}%
+  \renewcommand{\bibname}{REFERÊNCIAS}}
+\renewcommand{\cfttoctitlefont}{\hfill\normalfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\normalfont\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\normalfont\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\setlength{\cftbeforechapskip}{4pt}
+\setlength{\cftsecindent}{0pt}\setlength{\cftsubsecindent}{0pt}\setlength{\cftsubsubsecindent}{0pt}
+\setlength{\cftchapnumwidth}{1.5em}\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.2em}\setlength{\cftsubsubsecnumwidth}{4em}
+\renewcommand{\cftfigpresnum}{Figura~}
+\renewcommand{\cftfigaftersnum}{~--}
+\setlength{\cftfigindent}{0pt}\setlength{\cftfignumwidth}{5.5em}
+\renewcommand{\cfttabpresnum}{Tabela~}
+\renewcommand{\cfttabaftersnum}{~--}
+\setlength{\cfttabindent}{0pt}\setlength{\cfttabnumwidth}{5.5em}
+
+% ---------- rodape: numero da pagina centralizado embaixo
+\usepackage{fancyhdr}
+\fancypagestyle{textual}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+
+\usepackage[authoryear,round]{natbib}
+\usepackage{xurl}
+\newcommand{\linkcnes}[1]{\href{#1}{\texttt{cnes2.datasus.gov.br} (competência 07/2026)}}
+\usepackage{enumitem,needspace}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Planejamento da rede de atenção à saúde de Itaúna},
+  pdfauthor={Thais Pereira de Oliveira, Pedro Martins de Souza, Luana Soares Ottoni}}
+
+\setlength{\emergencystretch}{2em}
+\renewcommand{\bibname}{Referências}
+
+% =====================================================================
+% Identificacao do trabalho
+\newcommand{\instituicao}{Universidade Federal de Minas Gerais}
+\newcommand{\curso}{Escola de Engenharia -- Departamento de Engenharia de Produção}
+\newcommand{\autores}{Thais Pereira de Oliveira\\Pedro Martins de Souza\\Luana Soares Ottoni}
+\newcommand{\orientador}{Prof. João Flávio de Freitas Almeida}
+\newcommand{\cidade}{Belo Horizonte}
+\newcommand{\ano}{2026}
+\newcommand{\titulo}{Planejamento da rede de atenção à saúde de Itaúna}
+\newcommand{\subtitulo}{localização de UBS e alocação hierárquica de encaminhamentos em uma abordagem sequencial}
+% =====================================================================
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+% ---------- capa
+\begin{titlepage}
+\centering
+{\bfseries\MakeUppercase{\instituicao}\par}
+{\MakeUppercase{\curso}\par}
+\vspace{2.5cm}
+{\bfseries\MakeUppercase{\autores}\par}
+\vfill
+{\bfseries\large\MakeUppercase{\titulo}:\par}
+{\large\subtitulo\par}
+\vfill
+{\MakeUppercase{\cidade}\par}
+{\ano\par}
+\end{titlepage}
+
+% ---------- folha de rosto
+\begin{titlepage}
+\centering
+{\bfseries\MakeUppercase{\autores}\par}
+\vspace{4cm}
+{\bfseries\large\MakeUppercase{\titulo}:\par}
+{\large\subtitulo\par}
+\vspace{2cm}
+\hspace*{.45\linewidth}\begin{minipage}{.55\linewidth}
+\singlespacing\small
+Trabalho apresentado à disciplina EPD919 -- Pesquisa Operacional para Saúde, do Departamento de
+Engenharia de Produção da Escola de Engenharia da \instituicao{}, no período 2026/2, como requisito
+parcial para aprovação.\par
+\vspace{8pt}
+\orientador.
+\end{minipage}
+\vfill
+{\MakeUppercase{\cidade}\par}
+{\ano\par}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagestyle{textual}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\chapter*{Resumo}
+Este trabalho aplica modelos de Pesquisa Operacional ao planejamento da rede de saúde de Itaúna (MG) em
+duas etapas. Na primeira, um modelo de programação linear inteira mista escolhe onde abrir novas Unidades
+Básicas de Saúde (UBS) e quantas equipes de Saúde da Família (eSF) e agentes comunitários de saúde (ACS)
+alocar. Os objetivos seguem uma ordem de prioridade, que maximiza primeiro a cobertura até 3 km, depois
+minimiza o custo em cinco anos e, por fim, a distância. Equipes móveis atendem os pontos que continuam
+fora desse raio. Na segunda etapa, a demanda especializada, estimada pela produção ambulatorial e
+hospitalar dos moradores em 2025, é encaminhada das UBS aos estabelecimentos secundários e terciários
+existentes. A base tem 91 pontos territoriais, 22 UBS e 104.002 habitantes projetados para 2026. O plano
+abre nove UBS e chega a 39 eSF e 192 ACS, o que eleva a cobertura com capacidade de 65,6\% para 97,7\%, e
+duas equipes móveis levam a cobertura potencial a 100\%. O funcionamento custa R\$ 3,00 milhões por mês, o que equivale a 70,7\% da dotação anual da Atenção
+Básica, e a construção exige um investimento único de R\$ 22,8 milhões. Na rede especializada, a média
+complexidade ambulatorial é quase toda atendida no município, mas cerca de 25\% da alta complexidade não
+cabe na oferta local. As UBS rurais ficam com 17\% a 52\% de ocupação, o que mostra o custo
+da equidade territorial.
+
+\noindent\textbf{Palavras-chave:} localização de instalações; atenção primária à saúde; máxima cobertura;
+rede hierárquica; otimização lexicográfica.
+
+\chapter*{Abstract}
+This study applies Operations Research models to plan the health care network of Itaúna, Brazil, in two
+sequential stages. First, a mixed-integer linear program with lexicographic objectives locates new
+primary care units (UBS) and sizes family health teams and community health workers, maximizing
+coverage within 3 km, then minimizing five-year cost and, finally, travel distance. Mobile teams
+complement the points still outside the radius. Second, a flow model allocates elective specialized
+demand, estimated from 2025 outpatient and inpatient records of residents, to existing secondary and
+tertiary providers. The plan selects 9 new units, 39 teams and 192 community health workers, raising
+capacity-constrained potential coverage from 65.6\% to 97.7\% (100\% with two mobile teams), at an estimated operating cost of R\$ 3.00 million per month, equal to 70.7\% of the annual primary care budget, plus R\$ 22.8 million in construction. About 25\% of
+high-complexity outpatient demand remains unallocated. Allowing two care levels in two providers
+reduces this gap to 20\%. Rural units show low occupancy, illustrating the cost of territorial equity.
+
+\noindent\textbf{Keywords:} facility location; primary health care; maximal covering; hierarchical network;
+lexicographic optimization.
+
+\FloatBarrier
+\clearpage\tableofcontents\clearpage\listoftables\clearpage\listoffigures\clearpage
+
+% =====================================================================
+\chapter{Introdução}
+
+A atenção primária é o primeiro contato da população com o sistema de saúde e coordena o cuidado
+prestado nos demais níveis \citep{mendes2010}. No Sistema Único de Saúde (SUS), a Unidade Básica de
+Saúde (UBS) é a porta de entrada preferencial da rede, e a Política Nacional de Atenção Básica (PNAB)
+estabelece referências de população por equipe e por agente comunitário de saúde \citep{pnab2017}. A
+Estratégia Saúde da Família é a forma prioritária de expansão e consolidação da atenção primária no SUS
+\citep{pnab2017}.
+
+A atenção secundária reúne serviços especializados de complexidade intermediária, enquanto a
+terciária concentra recursos de maior complexidade \citep{mendes2010}. Uma internação não é necessariamente terciária, pois pode envolver procedimentos
+de média ou de alta complexidade. Por exigirem
+profissionais e equipamentos escassos, esses serviços são concentrados em polos regionais, segundo o
+princípio de economia de escala das Redes de Atenção à Saúde \citep{brasil2010}. O acesso a eles ocorre
+por referenciamento, em que a UBS encaminha parte dos usuários ao nível secundário e parte destes segue
+ao terciário \citep{brasil2011,sahin2007}. Por isso, ao expandir a atenção primária, é preciso verificar se os serviços
+especializados comportam a demanda encaminhada.
+
+A utilização corresponde aos atendimentos realizados, enquanto o acesso envolve as condições para
+receber o cuidado, como localização, capacidade e organização dos serviços
+\citep{aday1974,santana2023}. Os registros de produção mostram o uso da rede e servem para dimensionar a
+oferta que mantém esse padrão de atendimento na população projetada. Eles não captam, porém, a
+necessidade que não chegou aos serviços \citep{santana2023}.
+
+Planejar essa rede exige decidir onde instalar unidades, quanta capacidade alocar e como encaminhar
+a população entre os níveis. A Pesquisa Operacional oferece modelos de localização e alocação para
+apoiar essas decisões em saúde
+\citep{daskin2004,ahmadi2017}, inclusive em redes com vários níveis de serviço \citep{sahin2007,hodgson1988}. Em
+Itaúna, a base territorial combina bairros e setores censitários urbanos e rurais, com
+populações de tamanhos muito diferentes, e alguns estabelecimentos oferecem serviços de mais de um nível de atenção. Essas
+características motivam regras de abertura distintas para UBS urbanas e rurais e a comparação de formas
+de classificar a rede especializada.
+
+O objetivo deste trabalho é propor um plano de expansão da atenção primária de Itaúna e avaliar como a
+demanda especializada gerada pela rede proposta pode ser distribuída entre os estabelecimentos
+secundários e terciários existentes. São definidas novas UBS, equipes de Saúde da Família (eSF) e agentes
+comunitários de saúde (ACS), com avaliação de cobertura, custos, distâncias e impacto orçamentário.
+Busca-se, além disso, quantificar o custo de ampliar a cobertura nas áreas rurais e identificar a parcela
+da demanda especializada que a oferta local não comporta.
+
+O estudo adota uma abordagem sequencial. Na primeira etapa, são definidas a localização das novas UBS,
+as equipes e os ACS, além de equipes móveis para os pontos que ficam a mais de 3 km de uma UBS. Na segunda, o
+plano de atenção primária fixa a origem dos encaminhamentos, que são distribuídos entre os
+estabelecimentos especializados. Procedimentos ambulatoriais e internações são analisados separadamente.
+O Capítulo~2 revisa a literatura, o Capítulo~3 descreve dados e modelos, o Capítulo~4 apresenta e
+discute os resultados, e o Capítulo~5 reúne as conclusões.
+
+% =====================================================================
+\chapter{Revisão bibliográfica}
+
+\Needspace{12\baselineskip}
+\section{O SUS e as redes de atenção à saúde}
+
+O Sistema Único de Saúde (SUS) foi criado com base nos princípios de universalidade, integralidade e
+equidade, e é organizado de forma descentralizada, regionalizada e hierarquizada em níveis de
+complexidade crescente \citep{brasil1990,paim2011}. \citet{castro2019} mostram que, em seus primeiros
+30 anos, o SUS ampliou o acesso universal sobretudo por meio da atenção primária, mas ainda enfrenta
+desigualdades geográficas persistentes e financiamento insuficiente, desafios que motivam este trabalho.
+Para apoiar o planejamento, a Portaria nº 1.631/2015 estabelece parâmetros para a programação de ações
+e serviços no SUS e admite sua adequação às realidades locais \citep{brasil2015a}.
+
+\citet{mendes2010} propõe as Redes de Atenção à Saúde (RAS) como resposta à fragmentação dos sistemas.
+As RAS são compostas por uma população adscrita, uma estrutura operacional de pontos de atenção e um
+modelo de atenção, e têm a atenção primária como centro de comunicação que coordena os fluxos entre os
+níveis secundário e terciário. A Portaria nº 4.279/2010 estabelece as diretrizes das RAS e adota como
+fundamentos a economia de escala, a disponibilidade de recursos e a integração entre os níveis. Por esses
+fundamentos, recursos escassos devem ser concentrados e os menos escassos, distribuídos \citep{brasil2010}.
+
+O Decreto nº 7.508/2011 define a atenção primária como porta de entrada e ordenadora do acesso aos
+serviços especializados, organizados por referenciamento do usuário dentro de regiões de saúde
+\citep{brasil2011}. Segundo a PNAB, a eSF é formada por
+médico, enfermeiro, auxiliar ou técnico de enfermagem e ACS. A política recomenda de 2.000 a 3.500 pessoas
+por equipe e até quatro equipes por UBS, com adequações ao território, e até 750 pessoas por ACS em áreas
+de grande dispersão, risco ou vulnerabilidade \citep{pnab2017}. \citet{freire2021} analisam como a PNAB
+de 2017 afetou o número de ACS na atenção primária brasileira.
+
+\Needspace{12\baselineskip}
+\section{Acesso, necessidade e acessibilidade}
+
+Reduzir custos não basta quando a população não consegue receber o atendimento de que precisa, e
+por isso o planejamento em saúde também precisa medir o acesso \citep{ahmadi2017}. \citet{aday1974} propõem um quadro em
+que o acesso é medido pelo uso dos serviços em relação à necessidade. O modelo relaciona a política de
+saúde, as características do sistema, como recursos e organização, e as da população em risco, cujos
+resultados são a utilização e a satisfação dos usuários.
+
+\citet{santana2023} distinguem necessidade, demanda e oferta e combinam esses três elementos em sete
+situações. Entre elas, há a necessidade e a demanda sem oferta suficiente, em que o atendimento é
+restringido pela capacidade, e a oferta sem necessidade nem demanda, que representa capacidade ociosa.
+\citet{shengelia2005} definem cobertura efetiva como a probabilidade de um indivíduo obter ganho de saúde
+de uma intervenção quando dela necessita, o que integra necessidade, utilização e qualidade.
+
+\citet{guagliardo2004} separa o acesso potencial do realizado e identifica duas dimensões espaciais. A
+disponibilidade é o número de pontos de atendimento que o usuário pode escolher, e a acessibilidade é a
+dificuldade de deslocamento até eles, medida pela distância ou pelo tempo de viagem. As medidas incluem razões de oferta por
+habitante, distância ao serviço mais próximo, distância média e modelos gravitacionais. O modelo
+gravitacional mais simples foi proposto por \citet{hansen1959}, e \citet{joseph1982} o ajustaram pela
+população concorrente de cada serviço, considerando oferta e demanda simultaneamente.
+
+\Needspace{12\baselineskip}
+\section{Localização de instalações de saúde}\label{sec:revlocal}
+
+A localização de instalações é uma das decisões estratégicas mais importantes em saúde, pois unidades
+mal localizadas ou em número inadequado aumentam custos e dificultam o acesso \citep{ahmadi2017}. Os
+critérios de avaliação de instalações não emergenciais são a eficiência, a efetividade e a equidade, e a
+minimização de custos é outro objetivo frequente \citep{ahmadi2017}. Esses problemas envolvem interesses
+diferentes. Os pacientes valorizam o deslocamento e o tempo de espera, os prestadores valorizam os custos
+e a disponibilidade de pessoal, e a comunidade valoriza a equidade do acesso \citep{contreras2019}.
+
+Os problemas discretos de localização dividem-se em problemas de cobertura, como cobertura de conjuntos,
+máxima cobertura e $p$-centro, e problemas de mediana, como $p$-mediana e custo fixo
+\citep{daskin2008,daskin2004}. O problema de máxima cobertura, proposto por \citet{church1974}, maximiza
+a demanda atendida dentro de uma distância de serviço com um número fixo de instalações. O problema das
+$p$-medianas, formulado por \citet{hakimi1964}, minimiza a distância ponderada pela demanda, e o problema
+de custo fixo com capacidade acrescenta custos de abertura e limites de atendimento por unidade
+\citep{ahmadi2017}.
+
+\citet{contreras2019} descrevem a capacidade das unidades de saúde a partir dos recursos necessários,
+como profissionais, leitos e equipamentos. Quando a capacidade é limitada, a demanda de uma região pode
+ser repartida entre várias unidades, mas essa alocação múltipla não considera a preferência do paciente.
+Restrições de alocação à unidade mais próxima representam essa preferência, ao custo de tornar o
+problema mais restrito. \citet{rahman2000} mostram que modelos de localização-alocação apoiam o
+planejamento da atenção básica em países em desenvolvimento, em que a acessibilidade geográfica é uma
+barreira relevante.
+
+Como os problemas de localização em saúde são multiobjetivo, é preciso decidir como combinar critérios.
+Na otimização lexicográfica, os objetivos são ordenados por prioridade. Otimiza-se o primeiro e, com o
+seu valor ótimo mantido como restrição, otimizam-se os demais em sequência \citep{ehrgott2005}.
+Diferentemente da soma ponderada, essa abordagem não exige pesos entre grandezas de natureza diferente,
+como população coberta e custo, mas pressupõe uma ordem de prioridade bem definida.
+
+\Needspace{12\baselineskip}
+\section{Redes hierárquicas de serviços de saúde}
+
+\citet{sahin2007} e \citet{contreras2019} classificam os problemas de localização hierárquica por três
+características. O padrão de fluxo pode ser de fluxo único, em que o paciente percorre todos os níveis,
+ou de fluxo múltiplo, em que pode pular níveis. A hierarquia de serviços pode ser aninhada, quando uma
+unidade de nível superior oferece também os serviços dos níveis inferiores, ou não aninhada. A
+configuração espacial é coerente quando toda a demanda de uma unidade é encaminhada a uma única unidade
+do nível seguinte.
+
+\citet{narula1986} revisa os problemas hierárquicos de mediana aplicados ao planejamento da saúde, entre
+eles a formulação de Narula e Ogbu, em que uma proporção dos pacientes atendidos no primeiro nível é
+encaminhada ao nível superior. \citet{schultz1970} mostra que o raio de serviço ótimo de cada nível
+resulta do equilíbrio entre o benefício por habitante e o custo de produção e deslocamento, e que os
+serviços de nível mais alto toleram deslocamentos maiores.
+
+\citet{hodgson1988} argumenta que os níveis de uma rede de atenção estão interligados, de modo que
+localizá-los de forma independente pode levar a soluções ruins. O autor também observa que os pacientes
+nem sempre procuram a unidade mais próxima, pois a atratividade cresce com o nível do serviço e diminui
+com a distância. Essas observações justificam tratar a rede de forma hierárquica e interpretar com
+cautela as hipóteses de alocação.
+
+\Needspace{12\baselineskip}
+\section{Aplicações à reorganização de redes de saúde}
+
+\citet{guerriero2016} comparam a rede hospitalar existente na Calábria, Itália, com soluções de modelos
+clássicos de localização. A rede atual deixava parte da demanda descoberta, enquanto cenários que
+realocam a demanda entre hospitais com capacidade expansível permitiam atendê-la integralmente.
+\citet{mic2019} localizam centros de atenção primária na Síria com um modelo multiobjetivo que maximiza
+a população atendida e minimiza os custos.
+
+\citet{elorza2022} propõem uma metodologia de máxima cobertura baseada na quantificação de necessidade,
+oferta e demanda para avaliar e redesenhar redes de atenção primária. No caso estudado, as unidades
+estavam bem distribuídas geograficamente, mas a oferta de serviços não correspondia às necessidades da
+população, caracterizando um problema de capacidade, e não de localização. Essa distinção entre
+proximidade e capacidade é central para os resultados deste trabalho.
+
+% =====================================================================
+\chapter{Metodologia}
+
+\section{Visão geral da abordagem}
+A Figura~\ref{fig:fluxo} resume a abordagem, que tem duas etapas resolvidas em sequência. Na primeira,
+os dados de população e de produção alimentam o modelo da atenção primária à saúde (APS), que define as
+UBS, as equipes e os ACS, e equipes móveis atendem os pontos que continuam distantes de uma UBS. Na
+segunda, a demanda especializada é vinculada às UBS, que passam a ser a origem dos encaminhamentos aos
+níveis secundário e terciário. Essa sequência permite analisar primeiro a expansão territorial e,
+em seguida, a distribuição dos atendimentos especializados na rede definida.
+
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}[
+  etapa/.style={draw=black!70, line width=0.8pt, rounded corners=4pt, fill=black!4,
+    text width=9cm, minimum height=1.4cm, align=center, inner sep=6pt, font=\normalsize},
+  seta/.style={-{Stealth[length=7pt,width=6pt]}, line width=0.9pt, black!70,
+    shorten >=3pt, shorten <=3pt},
+  node distance=0.9cm]
+\node[etapa] (dados) {Dados de população e demanda municipal};
+\node[etapa, below=of dados] (aps) {Localização das UBS e dimensionamento\\ das equipes da atenção primária};
+\node[etapa, below=of aps] (vinc) {População e demanda vinculadas às UBS};
+\node[etapa, below=of vinc] (enc) {Encaminhamentos secundários e terciários};
+\draw[seta] (dados.south) -- (aps.north);
+\draw[seta] (aps.south) -- (vinc.north);
+\draw[seta] (vinc.south) -- (enc.north);
+\end{tikzpicture}
+\caption{Etapas da abordagem sequencial}\label{fig:fluxo}
+\fonte{Elaboração própria.}
+\end{figure}
+
+\section{Dados e projeção da população}
+A base territorial tem 91 pontos, sendo 51 bairros e 40 setores censitários, que somavam 97.669
+habitantes no Censo de 2022 \citep{ibge2022}. Os pontos cobrem as áreas urbanas
+e rurais, e cada um concentra a população do seu território em uma única coordenada, a partir da qual se
+medem as distâncias até as UBS. Essa agregação mantém o modelo pequeno e fácil de interpretar. Como o IBGE não publica estimativas por bairro ou setor, a
+participação de cada ponto no total é mantida para projetar 104.002 habitantes em 2026,
+conforme a estimativa oficial do IBGE, que era de 103.272 habitantes em 2025 \citep{ibge2025est,ibge2026est}.
+As equipes, os profissionais, as salas e os leitos das unidades vêm do Cadastro Nacional de
+Estabelecimentos de Saúde (CNES) de julho de 2026 \citep{cnes2026}.
+
+A demanda especializada é estimada pela produção registrada no Sistema de Informações Ambulatoriais (SIA)
+e no Sistema de Informações Hospitalares (SIH) em 2025, obtida no DATASUS, o departamento de informática
+do SUS \citep{datasus2026,tabnet}. Consideram-se apenas os atendimentos eletivos, isto é, programados, de
+moradores de Itaúna, pois são esses que chegam à atenção especializada por encaminhamento da UBS, enquanto
+as urgências têm porta de entrada própria. Na parte ambulatorial, entram 753 procedimentos de média e alta complexidade com
+finalidade diagnóstica, clínica ou cirúrgica \citep{sigtap}.
+
+As urgências ficam fora da demanda, mas
+entram na carga que ocupa os leitos hospitalares. Os volumes são contados em procedimentos e internações, e
+não em pacientes, pois uma pessoa pode gerar vários registros. A taxa de utilização usa a população de 2025, o mesmo ano da produção, e é aplicada à
+população de 2026, sem ajuste por idade ou risco. A Seção~\ref{sec:ligacao} detalha esse cálculo.
+
+\section{Oferta especializada e capacidades}
+Os níveis secundário e terciário são representados pela média e pela alta complexidade dos
+procedimentos. O modelo distribui volumes por nível, sem verificar a compatibilidade entre
+especialidades. Na análise principal, chamada de classificação única, cada estabelecimento oferece um só
+nível. Na análise complementar, chamada de classificação de dois níveis, o Hospital Manoel Gonçalves e o
+Centro de Especialidades Médicas e Odontológicas Dr. Ovídio Nogueira Machado oferecem os dois níveis.
+Como o centro realizou apenas 920 procedimentos eletivos de alta complexidade em 2025, contra 84.681 de
+média, essa oferta recebe um limite próprio.
+
+\subsection{Capacidade ambulatorial}
+A capacidade ambulatorial anual de cada estabelecimento é estimada a partir da sua produção. Toma-se a
+produção eletiva do mês de maior volume, multiplica-se por 12 e desconta-se a produção anual destinada a
+moradores de outros municípios. O mês de maior produção mostra o volume que o estabelecimento já
+conseguiu realizar com a estrutura atual, e o desconto reserva a parte da oferta que atende outros
+municípios. Na classificação de dois níveis, cada complexidade tem também um limite
+próprio, igual ao maior valor entre a sua produção no mês de pico multiplicada por 12 e a sua produção
+anual, também sem os não residentes. A soma das duas complexidades respeita o limite total do
+estabelecimento.
+
+\subsection{Leitos gerais e UTI}\label{sec:leitos}
+O hospital tem 79 leitos SUS de internação geral e 19 de unidade de terapia intensiva (UTI), o que
+equivale a 28.835 e 6.935 dias-leito por ano. Os outros atendimentos, inclusive as urgências, ocupam
+cerca de 29.634 dias-leito, mas os registros não mostram quanto disso cabe a cada tipo de leito. Por
+isso, a disponibilidade de leitos gerais para internações eletivas fica entre zero e 6.136 dias-leito.
+O cenário principal adota o extremo conservador, que é zero, e a Seção~\ref{sec:encaminhamentos} testa
+também o extremo favorável. As permanências médias, calculadas pelo SIH, são de 5,13 dias na média e
+3,33 dias na alta complexidade.
+
+\section{Modelo de localização e dimensionamento das UBS}\label{sec:modeloaps}
+O modelo escolhe onde abrir novas UBS e quantas eSF e ACS cada unidade terá. As candidatas, isto é, os
+locais possíveis para novas UBS, são os pontos territoriais a mais de 1 km de uma UBS existente. Sejam
+$I$ os pontos de demanda, $E$ as UBS existentes, $C$ as candidatas e $J=E\cup C$. $P_i$ é a população do
+ponto $i$, e $d_{ij}$ é a distância em linha reta entre o ponto e a UBS, calculada pela fórmula de
+Haversine. O parâmetro $H_{ij}$ vale um quando $d_{ij}$ não passa do raio de cobertura, de 3 km no cenário principal.
+
+As variáveis são a população alocada $q_{ij}\geq0$, a abertura $y_j\in\{0,1\}$, os números de eSF e de
+ACS $n_j,a_j\in\mathbb{Z}_+$ e a escolha $z_{jp}\in\{0,1\}$ do porte $p$ de cada nova UBS. Nas UBS
+existentes, $n_j^0$ e $a_j^0$ são as eSF e os ACS atuais. O porte segue
+o Novo PAC Saúde, programa federal de investimento que define o custo de construção conforme o número
+de equipes \citep{novopac2025}. As restrições do modelo são as seguintes.
+\begin{align}
+\sum_j q_{ij}&=P_i &&\forall i\in I,\\
+\sum_i q_{ij}&\leq3000\,n_j,\qquad \sum_i q_{ij}\leq750\,a_j &&\forall j\in J,\\
+y_j&=1,\quad n_j\geq n_j^0,\quad a_j\geq a_j^0 &&\forall j\in E,\\
+y_j\leq n_j&\leq\overline n_j\, y_j &&\forall j\in J,\\
+\sum_i H_{ij}q_{ij}&\geq m_j\,y_j &&\forall j\in C,\\
+\sum_p z_{jp}&=y_j,\qquad n_j=\sum_p p\,z_{jp} &&\forall j\in C.
+\end{align}
+
+\penalty0
+A primeira restrição aloca toda a população de cada ponto. A segunda limita a carga de cada UBS a 3.000
+habitantes por eSF e a 750 por ACS. O valor de 3.000 é a média por equipe recomendada desde a
+PNAB de 2011 \citep{brasil2013teto} e fica dentro da faixa de 2.000 a 3.500 da PNAB atual. O limite de 750 por ACS, indicado pela PNAB para áreas vulneráveis, vale aqui para
+todo o município \citep{pnab2017}. O menor desses dois limites é chamado aqui de capacidade efetiva. As UBS existentes continuam abertas e mantêm suas equipes, e o
+número de salas de cada uma limita as novas equipes ($\overline n_j$). Uma nova UBS precisa ter pelo menos
+2.000 habitantes no raio na zona urbana e 500 na rural ($m_j$), valores definidos pelo estudo. Cada nova
+unidade pode ter de uma a quatro equipes, teto que segue a PNAB.
+
+O custo operacional mensal $O$ soma o custo fixo $f_j$, de R\$ 12.000 nas UBS existentes e R\$ 15.000
+nas novas, o custo atual de médicos, enfermeiros e técnicos $C_j^0$, as novas eSF, a $c_e$ cada uma, e os ACS, a $c_a$ cada um. O custo fixo
+cobre as despesas de funcionamento sem pessoal e é uma hipótese do estudo. O
+investimento $B$ soma o custo de construção $b_p$ das novas UBS, e $G$ é a população coberta dentro do
+raio.
+\begin{align}
+G&=\sum_{i,j}H_{ij}q_{ij},\\
+O&=\sum_{j\in E}f_j+\sum_{j\in C}f_jy_j+
+\sum_j\left[C_j^0+c_e(n_j-n_j^0)+c_aa_j\right],\\
+B&=\sum_{j\in C,p}b_pz_{jp}.
+\end{align}
+
+\penalty0
+O pessoal atual é estimado pelas horas semanais registradas no CNES \citep{cnes2026}. As horas de cada
+categoria são divididas por 40, a jornada das eSF na PNAB \citep{pnab2017}, o que dá o número de
+profissionais equivalentes. Esse número é multiplicado por uma remuneração mensal de referência, de R\$ 14.000 para médicos, R\$ 5.000 para enfermeiros, R\$ 3.325 para
+técnicos e R\$ 2.375 para auxiliares de enfermagem. Os dois últimos são os pisos nacionais da enfermagem, e
+o valor dos enfermeiros fica pouco acima do piso de R\$ 4.750 \citep{brasil2022piso}. O valor dos médicos é
+próximo da bolsa-formação bruta do Programa Mais Médicos, de R\$ 14.121,63 em 2026 \citep{maismedicos2026}.
+
+Cada nova eSF tem um médico, um enfermeiro e um técnico. O ACS recebe R\$ 3.242, valor do piso de dois
+salários mínimos de 2026, e não o vencimento pago pelo município \citep{brasil2022,brasil2025sm}. Todas
+as remunerações são multiplicadas por $(13+1/3)/12\times1{,}30\approx1{,}444$. O primeiro termo
+distribui pelos meses o décimo terceiro e o adicional de um terço de férias
+\citep{brasil1962decimo,brasil1988cf}. O fator 1,30 soma 20\% de contribuição patronal, 2\% de risco de
+acidentes e 8\% de FGTS, como em uma contratação pelo regime CLT \citep{brasil1991custeio,brasil1990fgts}.
+A Tabela~\ref{tab:origem_custos} indica quais valores vêm de normas e quais são hipóteses do estudo.
+O modelo é resolvido em três fases, seguindo a otimização lexicográfica descrita na Seção~\ref{sec:revlocal}.
+\begin{align}
+\text{Fase 1}\quad&\max\;G &&\Rightarrow G^*,\\
+\text{Fase 2}\quad&\min\;B+60\,O &&\text{s.a. }G=G^*\ \Rightarrow O^*,B^*,\\
+\text{Fase 3}\quad&\min\;0{,}05\sum_{i,j}d_{ij}q_{ij}
+&&\text{s.a. }G=G^*,\ O\leq1{,}02\,O^*,\ B\leq B^*.
+\end{align}
+
+\penalty0
+A primeira fase maximiza a população coberta. A segunda minimiza o custo de cinco anos, que soma a
+construção a 60 meses de operação a preços constantes, sem reduzir a cobertura obtida. A terceira
+minimiza a distância percorrida, aceitando até 2\% a mais de custo operacional e sem aumentar o
+investimento. O valor de R\$ 0,05 por habitante-quilômetro serve apenas para ordenar
+as soluções pelo deslocamento e não entra no custo operacional. Na implementação, a igualdade $G=G^*$
+admite uma tolerância numérica de $10^{-7}$.
+
+O custo operacional também é limitado pelo orçamento da Atenção Básica de 2026. O limite vale para o
+acréscimo de funcionamento em relação à rede atual. Sejam $A$ a dotação anual, $C^0$ o custo anual
+estimado da rede atual e $R_m$ uma reserva anual para equipes móveis. A restrição é
+\begin{equation}
+12\left[\sum_{j\in C}f_jy_j+c_e\sum_j(n_j-n_j^0)+c_a\sum_j(a_j-a_j^0)\right]
+\leq A-C^0-R_m.
+\end{equation}
+
+\penalty0
+A dotação vem do RREO de 2026 \citep{tesouro2026}, e $C^0$ usa os mesmos custos unitários do modelo. A
+reserva $R_m$ é o custo das equipes móveis de que a rede atual precisaria. A construção entra no custo de cinco anos da segunda fase, mas não nesse limite anual.
+
+Na classificação de \citet{daskin2008}, o modelo combina a máxima cobertura \citep{church1974} com o
+problema de custo fixo com capacidade \citep{ahmadi2017}. A capacidade vem dos recursos humanos de cada
+unidade, como na modelagem de \citet{contreras2019}. A população de um ponto pode ser dividida entre
+várias UBS, sem a exigência de ir à mais próxima, ponto retomado na Seção~\ref{sec:discussao}.
+
+\section{Cobertura e equipes móveis}\label{sec:movel}
+Para comparar a rede atual com a proposta, usam-se duas medidas. A cobertura geográfica é a parcela da
+população que mora a até 3 km de uma UBS. A cobertura com capacidade é a maior parcela que pode ser
+alocada a UBS dentro desse raio sem ultrapassar a capacidade efetiva de cada uma. As duas medidas são
+potenciais e não substituem a cobertura oficial do Ministério da Saúde \citep{aps2026} nem a cobertura
+efetiva definida por \citet{shengelia2005}.
+
+As equipes móveis atendem os pontos que continuam a mais de 3 km de uma UBS depois do plano. Cada equipe
+parte de uma UBS de apoio, chamada de UBS-base, e acompanha até 2.000 habitantes em até cinco pontos, a no máximo
+15 km em linha reta da base. Esses três limites são hipóteses do estudo, pois não há parâmetro oficial para
+esse arranjo. O modelo maximiza a população atendida e depois minimiza o número de equipes, com
+um ACS para cada 750 habitantes atendidos. Essas equipes são adicionais às fixas, e o seu custo inclui
+pessoal e encargos, mas não veículos nem combustível.
+
+Sejam $w_{iu}$ a população do ponto $i$ atendida
+pela base $u$, $k_u$ o número de equipes móveis da base e $h_{iu}$ um indicador de que a base visita o
+ponto. Só podem ser ligados os pontos sem cobertura geográfica e as UBS do plano a até 15 km deles, e os
+demais pares têm $w_{iu}=h_{iu}=0$. As variáveis são $w_{iu}\geq0$, $h_{iu}\in\{0,1\}$ e $k_u$ inteiro, e
+as restrições são as seguintes.
+\begin{align}
+\sum_u w_{iu}&\leq P_i,\\
+w_{iu}&\leq P_i\,h_{iu},\\
+\sum_i w_{iu}&\leq2000\,k_u,\qquad\sum_i h_{iu}\leq5\,k_u.
+\end{align}
+
+\penalty0
+O limite de pontos vale para a base como um todo, de modo que duas equipes podem visitar até dez pontos.
+O modelo não define a rota nem a divisão das visitas entre as equipes.
+
+
+\section{Encaminhamento hierárquico}\label{sec:enc}
+
+\subsection{Da produção registrada à demanda de cada UBS}\label{sec:ligacao}
+A ligação entre a atenção primária e os níveis especializados é feita em quatro passos. Primeiro, a
+produção eletiva dos moradores em 2025 é dividida pela população de 2025, o que gera uma taxa de
+utilização por habitante para cada grupo de atendimento (Tabela~\ref{tab:taxas}). Os grupos separam
+procedimentos ambulatoriais e internações de média e de alta complexidade. Segundo, a taxa é
+multiplicada pela população projetada de cada ponto, o que dá a demanda do ponto em 2026,
+\begin{equation}
+D^n_{ik}=\frac{R^n_k}{P^{2025}}\,P_i,\label{eq:demanda}
+\end{equation}
+em que $n\in\{2,3\}$ é o nível, $k\in\{\mathrm{AMB},\mathrm{HOSP}\}$ é o tipo de atendimento, $R^n_k$ é a
+produção registrada em 2025 e $P^{2025}$ é a população municipal de 2025.
+
+\begin{table}[H]\centering
+\caption{Taxas de utilização e demanda especializada projetada}\label{tab:taxas}
+\begin{tabular}{lrrr}\toprule
+Grupo & Registrado (2025) & Taxa por mil hab. & Demanda (2026)\\\midrule
+Ambulatorial, média & 190.856 & 1.848,1 & 192.205,1\\
+Ambulatorial, alta & 15.752 & 152,5 & 15.863,3\\
+Internação, média & 1.065 & 10,3 & 1.072,5\\
+Internação, alta & 350 & 3,4 & 352,5\\
+\bottomrule\end{tabular}
+\fonte{SIA e SIH \citep{datasus2026}, com população de \citet{ibge2025est} e \citet{ibge2026est}.}
+\nota{Taxa = registrado em 2025 / 103.272 habitantes. Demanda em 2026 = taxa $\times$ 104.002 habitantes,
+distribuída entre os 91 pontos proporcionalmente à população.}
+\end{table}
+
+Terceiro, a demanda de cada ponto acompanha a sua população na alocação feita pelo modelo da atenção
+primária. Se o modelo vincula uma fração $\alpha_{iu}$ da população do ponto $i$ à UBS $u$, essa UBS
+passa a ser a origem da mesma fração da demanda do ponto. Os moradores atendidos pelas equipes móveis
+ficam vinculados à UBS-base, sem dupla contagem, de modo que $\sum_u\alpha_{iu}=1$ e toda a demanda tem
+uma UBS de origem. Quarto, o modelo de encaminhamento distribui a demanda de cada UBS entre os
+estabelecimentos secundários e terciários, respeitando as suas capacidades.
+
+Como exemplo, com as taxas da Tabela~\ref{tab:taxas}, um ponto com 1.000 moradores gera por ano cerca de 1.848 procedimentos ambulatoriais de
+média complexidade, 153 de alta, 10,3 internações de média e 3,4 de alta. Se o modelo vincular 60\%
+desses moradores à UBS A e 40\% à UBS B, cada uma encaminhará a mesma proporção desses volumes. No
+cenário em que metade da alta complexidade passa antes pelo nível secundário, metade dos 153
+procedimentos vai primeiro a esse nível e a outra metade segue direto ao terciário. Os valores podem
+ser fracionários porque representam atendimentos esperados.
+
+\subsection{Modelo de encaminhamento}
+Não há dados sobre o caminho de cada paciente entre os níveis. Por isso, testam-se três cenários para a
+parcela $r$ da demanda de alta complexidade que passa antes pelo nível secundário, igual a 25\%, 50\% ou
+75\%. Considera-se ainda que essa parcela já está contida na demanda secundária registrada, para não
+contar o mesmo atendimento duas vezes. Para cada ponto $i$ e tipo $k$,
+a demanda se divide em três fluxos.
+\begin{align}
+A_{ik}&=D^2_{ik}-rD^3_{ik},&L_{ik}&=(1-r)D^3_{ik},&V_{ik}&=rD^3_{ik}.
+\end{align}
+
+\penalty0
+O fluxo $A$ termina no nível secundário, $L$ segue direto ao terciário e $V$ passa pelos dois níveis. Na
+classificação de \citet{sahin2007}, a rede tem fluxo múltiplo, pois parte da demanda pula o nível
+secundário, e não é coerente, pois a demanda de uma UBS pode ir a vários estabelecimentos. A classificação
+única corresponde a uma hierarquia não aninhada, e a de dois níveis torna aninhados o hospital e o centro
+de especialidades. O uso de uma proporção fixa de encaminhamento segue os modelos
+hierárquicos revisados por \citet{narula1986}.
+
+Sejam $S$ e $T$ os estabelecimentos secundários e terciários, com índices $s$ e $t$. Os fluxos $f$, $g$ e
+$v$ levam as parcelas $A$, $L$ e $V$ de cada ponto $i$, vinculado à UBS $u$, até esses estabelecimentos, e as variáveis $\ell$ medem a parte que
+fica sem atendimento, chamada de falta. Todas essas variáveis são não negativas, e as equações de
+conservação são as seguintes.
+\begin{align}
+\sum_s f_{iuks}+\ell^f_{iuk}&=A_{ik}\alpha_{iu},\\
+\sum_t g_{iukt}+\ell^g_{iuk}&=L_{ik}\alpha_{iu},\\
+\sum_{s,t}v_{iukst}+\ell^v_{iuk}&=V_{ik}\alpha_{iu}.
+\end{align}
+
+\penalty0
+Cada estabelecimento $a$ recebe as cargas $Q^2_{ak}$ e $Q^3_{ak}$, e a carga de um nível que ele não
+oferece é zero.
+\begin{align}
+Q^2_{ak}&=\sum_{i,u}f_{iuka}+\sum_{i,u,t}v_{iukat},\\
+Q^3_{ak}&=\sum_{i,u}g_{iuka}+\sum_{i,u,s}v_{iuksa}.
+\end{align}
+
+\penalty0
+As cargas respeitam o limite ambulatorial total $C_a$, os limites por complexidade $C_a^2$ e $C_a^3$ e os
+dias-leito gerais disponíveis $B_a^{geral}$, com permanências médias $\tau_2$ e $\tau_3$.
+Os fluxos hospitalares são permitidos apenas nos estabelecimentos identificados como hospitais.
+\begin{align}
+Q^2_{a,\mathrm{AMB}}+Q^3_{a,\mathrm{AMB}}&\leq C_a,\\
+Q^2_{a,\mathrm{AMB}}&\leq C_a^2,\qquad Q^3_{a,\mathrm{AMB}}\leq C_a^3,\\
+\tau_2Q^2_{a,\mathrm{HOSP}}+\tau_3Q^3_{a,\mathrm{HOSP}}&\leq B_a^{geral}.
+\end{align}
+
+\penalty0
+O modelo primeiro minimiza a falta total. Cada falta é dividida pelo total do seu grupo, $N^n_k$, para que
+procedimentos e internações não sejam somados como se fossem equivalentes.
+\begin{equation}
+\Phi=\sum_{i,u,k}\frac{\ell^f_{iuk}+\ell^v_{iuk}}{N^2_k}
++\sum_{i,u,k}\frac{\ell^g_{iuk}+\ell^v_{iuk}}{N^3_k},\qquad N^n_k=\sum_iD^n_{ik}.
+\end{equation}
+
+\penalty0
+Depois, mantendo a menor falta encontrada, $\Phi^*$, o modelo minimiza a distância percorrida, também
+dividida pelos totais de cada grupo. Cada fluxo percorre a distância do ponto à UBS e da UBS ao
+estabelecimento, e o fluxo $V$ percorre ainda a distância $d_{st}$ entre os dois níveis, que é zero quando
+eles ficam no mesmo estabelecimento.
+\begin{align}
+Z={}&\sum_{i,u,k,s}\frac{(d_{iu}+d_{us})f_{iuks}}{N^2_k}
++\sum_{i,u,k,t}\frac{(d_{iu}+d_{ut})g_{iukt}}{N^3_k}\nonumber\\
+&+\sum_{i,u,k,s,t}\left(\frac{d_{iu}+d_{us}}{N^2_k}+\frac{d_{st}}{N^3_k}\right)v_{iukst}.
+\end{align}
+
+\penalty0
+Como a falta é minimizada primeiro, a redução da distância nunca é obtida à custa de atender menos no
+total, embora a falta possa mudar de um grupo para outro. O modelo não abre novos estabelecimentos
+especializados, e as distâncias, em linha reta, servem para comparar configurações da rede, e não para
+estimar o tempo real de viagem.
+
+\input{detalhamento_metodologico.tex}
+
+% =====================================================================
+\chapter{Resultados e discussão}
+\input{resultados_artigo.tex}
+
+\section{Discussão}\label{sec:discussao}
+
+\subsection{Expansão da atenção primária e custo da cobertura rural}
+O principal resultado é que, com os parâmetros adotados, o maior déficit da atenção primária de Itaúna é de
+capacidade. Quase toda a população mora a até 3 km de uma UBS, mas as equipes
+existentes não comportam todos os moradores. A distância também pesa para os moradores mais afastados, e por
+isso o plano amplia ainda a cobertura geográfica. É a situação de necessidade e demanda sem oferta suficiente
+descrita por \citet{santana2023}, que ilustra a diferença entre proximidade e disponibilidade apontada por
+\citet{guagliardo2004}. \citet{elorza2022} chegaram a conclusão semelhante em outra rede de atenção
+primária, com unidades bem distribuídas e oferta insuficiente. Como as salas das UBS existentes não
+comportam novas equipes, a expansão depende de novas unidades.
+
+O investimento necessário para cada ponto percentual de cobertura cresce à medida que a meta sobe, como
+na relação entre número de instalações e cobertura estudada por \citet{church1974}. Três UBS urbanas, com
+R\$ 12,9 milhões de construção, já resolvem a maior parte do déficit de capacidade. Já os últimos 0,7
+ponto percentual, de 97,0\% para 97,7\%, exigem mais duas UBS e cerca de R\$ 4 milhões, por causa das
+unidades rurais. Cada UBS rural custa R\$ 1,99 milhão de construção e, em média, R\$ 57 mil por mês para
+atender de 520 a 1.553 pessoas.
+
+Esse é o conflito entre eficiência e equidade que \citet{ahmadi2017} apontam como central nos serviços
+não emergenciais, e o desequilíbrio entre áreas urbanas e rurais motivou o modelo de \citet{hodgson1988}.
+As UBS rurais aproximam o serviço de pequenos grupos dispersos, mas ficam com boa parte da capacidade
+ociosa. Essa escolha atende à universalidade e à igualdade de acesso previstas para o SUS
+\citep{brasil1988cf,brasil1990}, e o modelo mostra quanto ela custa. A sensibilidade aponta alternativas,
+como exigir 1.000 habitantes para abrir uma UBS rural, com menos obras e mais equipes móveis, ou adotar
+um raio rural de 5 km. A escolha entre elas é uma decisão de política de saúde.
+
+O plano também aumenta a distância até a UBS de vínculo. A distância média passa de 0,85 km para 0,98 km,
+e a população a até 1 km da sua UBS cai de 90,7\% para 65,5\%. A situação atual liga cada ponto à UBS
+mais próxima, sem limite de capacidade, enquanto o plano respeita esse limite e transfere parte dos
+moradores do centro para unidades novas, que precisam estar a mais de 1 km das existentes. Esse é o custo
+em deslocamento de tornar a capacidade compatível com a população.
+
+Essa transferência decorre da alocação múltipla, que não considera a preferência do usuário pela unidade
+mais próxima \citep{contreras2019}. Na prática, parte dos moradores pode continuar procurando a UBS mais
+próxima, embora \citet{hodgson1988} observe que a escolha do paciente nem sempre segue esse critério.
+Exigir a alocação à unidade mais próxima tornaria o problema mais restrito e, com a capacidade limitada,
+poderia exigir outra configuração da rede ou reduzir a cobertura.
+
+\subsection{Rede especializada}
+A falta na alta complexidade não significa necessariamente desassistência. A demanda foi estimada pela
+produção dos moradores, que inclui atendimentos feitos em outros municípios, enquanto a oferta considera
+apenas os estabelecimentos de Itaúna. O resultado indica, portanto, o volume que depende de referência a
+outros municípios da região. Isso é coerente com o princípio de economia de escala das redes de atenção,
+segundo o qual os serviços de alta complexidade se concentram em polos regionais
+\citep{brasil2010,mendes2010}.
+
+A classificação de dois níveis ilustra a oferta aninhada descrita por \citet{sahin2007}. O ganho de
+atendimento é pequeno, pois o centro de especialidades produz pouca alta complexidade, e o ganho de
+distância vem dos encaminhamentos entre níveis dentro do mesmo estabelecimento. Nas internações, a
+variação entre zero e 92,6\% mostra que faltam dados de ocupação por tipo de leito, que também são a
+base dos parâmetros hospitalares do SUS \citep{brasil2015b}. Com esses dados, o modelo poderia estimar a
+capacidade real, como fazem \citet{guerriero2016} ao usar a ocupação e a permanência média para
+reorganizar uma rede hospitalar.
+
+\subsection{Implicações orçamentárias}
+O funcionamento da rede proposta custa R\$ 35,96 milhões por ano, 70,7\% da dotação atualizada da
+Atenção Básica, contra R\$ 24,23 milhões, ou 47,6\%, da rede atual (Tabela~\ref{tab:orcamento}). O
+acréscimo de R\$ 11,73 milhões, que já inclui o pessoal das equipes móveis, equivale a 23,1\% da dotação.
+Como a dotação também financia despesas que não entram no modelo, esses percentuais mostram o peso do
+plano no orçamento, e não uma folga disponível.
+
+A construção das nove UBS, de R\$ 22,85 milhões, é um investimento único e foi tratada à parte, pois
+recursos de capital e de custeio costumam ter fontes e prazos diferentes. O Novo PAC Saúde é uma possível
+fonte federal para as obras, mas depende de seleção e habilitação das propostas
+\citep{pacselecao2025,novopac2025}. Uma implantação em etapas distribuiria o investimento entre
+exercícios, e o funcionamento cresceria à medida que cada unidade entrasse em operação. A
+Figura~\ref{fig:investimento_cobertura} sugere uma ordem, começando pelas UBS urbanas, que resolvem a
+maior parte do déficit com menor investimento.
+
+\section{Limitações e trabalhos futuros}
+Os resultados dependem de simplificações que indicam os próximos passos do estudo. A demanda
+especializada vem da utilização registrada, o que dimensiona a rede para o padrão atual de atendimento,
+mas não capta filas e demanda reprimida \citep{santana2023}, e usa uma taxa única por habitante, sem
+ajuste por idade ou risco. Os 91 pontos aproximam o território, as candidatas não são terrenos
+confirmados e as distâncias são em linha reta, embora a acessibilidade dependa do tempo de viagem
+efetivo \citep{aday1974}.
+
+Na rede especializada, a agregação por nível não verifica a compatibilidade entre especialidades, e as
+parcelas $r$ são cenários, e não estimativas feitas com dados de encaminhamento. A capacidade
+ambulatorial vem do mês de maior produção, que pode não se manter ao longo do ano. Nas internações, não
+se sabe quanto dos leitos gerais é ocupado por urgências e outros atendimentos, o que explica a grande
+diferença entre os cenários hospitalares. Além disso, uma internação pode reunir procedimentos de
+complexidades diferentes, e por isso os fluxos entre níveis não devem ser lidos como transferências.
+
+Nos custos, os salários são valores de referência, e não a folha do município, o custo fixo é o mesmo
+para qualquer porte, e os veículos e o combustível das equipes móveis não foram incluídos. Essas equipes
+também dependem de uma programação de visitas que não foi modelada. Por fim, a abordagem sequencial fixa a
+atenção primária antes dos encaminhamentos e não garante o ótimo conjunto da rede, embora os níveis de
+atenção sejam interdependentes \citep{hodgson1988}. Demanda e capacidade também foram tratadas como
+valores conhecidos, e a otimização robusta ou a programação estocástica permitiriam avaliar o plano em
+diferentes cenários \citep{snyder2006}.
+
+% =====================================================================
+\chapter{Conclusões}
+Este trabalho combinou um modelo de localização com capacidade e um modelo de encaminhamento hierárquico
+para planejar a rede de saúde de Itaúna. O principal resultado é que o maior déficit da atenção primária está
+na capacidade das equipes, embora a distância também limite o acesso. Hoje, 93,4\% da população mora a até 3 km de
+uma UBS, mas as equipes comportam apenas 65,6\% dos moradores dentro desse raio, e cerca de 35,8 mil
+pessoas ficam sem equipe disponível. Outros 6,9 mil moradores estão a mais de 3 km de uma UBS.
+
+O plano abre nove UBS e eleva a rede a 39 eSF e 192 ACS, com cobertura geográfica e com capacidade de 97,7\%, e duas
+equipes móveis atendem os pontos mais distantes, o que leva a cobertura potencial a 100\%. O funcionamento custa R\$ 3,00 milhões por mês, 70,7\% da
+dotação da Atenção Básica, e a construção exige R\$ 22,8 milhões, que podem ser distribuídos em etapas. As
+UBS rurais são a parte mais cara em relação à população atendida, e a escolha entre elas, equipes móveis
+ou um raio maior é uma decisão de equidade.
+
+Na rede especializada, a média complexidade ambulatorial é quase toda atendida no município, mas cerca de
+um quarto da alta complexidade depende de outros municípios. Oferecer dois níveis no hospital e no centro
+de especialidades reduz essa parcela e a distância percorrida. As internações não puderam ser avaliadas
+com precisão, pois faltam dados de ocupação dos leitos, e o resultado varia de nenhuma a 92,6\% das
+internações atendidas conforme a hipótese adotada.
+
+A aplicação do plano exige confirmar os terrenos, programar as visitas das equipes móveis e levantar a
+ocupação dos leitos. Trabalhos futuros podem incluir a demanda reprimida, a estrutura etária, os tempos de
+viagem pela malha viária, a alocação à UBS mais próxima e a incerteza da demanda \citep{snyder2006}. Um
+modelo que decida ao mesmo tempo a expansão da atenção primária e os encaminhamentos permitiria avaliar a
+rede como um todo.
+
+
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem[Aday e Andersen(1974)]{aday1974}
+ADAY, L. A.; ANDERSEN, R. A framework for the study of access to medical care. \textit{Health Services Research}, v. 9, n. 3, p. 208--220, 1974. Disponível em: \url{https://pubmed.ncbi.nlm.nih.gov/4436074/}. Acesso em: 10 nov. 2026.
+
+\bibitem[Ahmadi-Javid et al.(2017)]{ahmadi2017}
+AHMADI-JAVID, A.; SEYEDI, P.; SYAM, S. S. A survey of healthcare facility location. \textit{Computers \& Operations Research}, v. 79, p. 223--263, 2017. DOI: \url{https://doi.org/10.1016/j.cor.2016.05.018}.
+
+\bibitem[Brasil(1962)]{brasil1962decimo}
+BRASIL. Lei nº 4.090, de 13 de julho de 1962. Institui a gratificação de Natal para os trabalhadores. Brasília, DF, 1962. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/leis/l4090.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(1988)]{brasil1988cf}
+BRASIL. \textit{Constituição da República Federativa do Brasil de 1988}. Arts. 7º, XVII, e 196. Brasília, DF, 1988. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(1990b)]{brasil1990fgts}
+BRASIL. Lei nº 8.036, de 11 de maio de 1990. Dispõe sobre o Fundo de Garantia do Tempo de Serviço. Art. 15. Brasília, DF, 1990b. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/leis/l8036compilada.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(1991)]{brasil1991custeio}
+BRASIL. Lei nº 8.212, de 24 de julho de 1991. Dispõe sobre a organização da Seguridade Social e institui Plano de Custeio. Art. 22. Brasília, DF, 1991. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/leis/l8212cons.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(1990a)]{brasil1990}
+BRASIL. Lei nº 8.080, de 19 de setembro de 1990. Dispõe sobre as condições para a promoção, proteção e recuperação da saúde, a organização e o funcionamento dos serviços correspondentes e dá outras providências. Brasília, DF, 1990. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/leis/l8080.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2010)]{brasil2010}
+BRASIL. Ministério da Saúde. Portaria nº 4.279, de 30 de dezembro de 2010. Estabelece diretrizes para a organização da Rede de Atenção à Saúde no âmbito do Sistema Único de Saúde (SUS). Brasília, DF, 2010. Disponível em: \url{https://bvsms.saude.gov.br/bvs/saudelegis/gm/2010/prt4279_30_12_2010.html}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2011)]{brasil2011}
+BRASIL. Decreto nº 7.508, de 28 de junho de 2011. Regulamenta a Lei nº 8.080, de 19 de setembro de 1990, para dispor sobre a organização do Sistema Único de Saúde --- SUS, o planejamento da saúde, a assistência à saúde e a articulação interfederativa, e dá outras providências. Brasília, DF, 2011. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/decreto/d7508.htm}. Acesso em: 24 nov. 2026.
+
+\bibitem[Brasil(2015a)]{brasil2015a}
+BRASIL. Ministério da Saúde. Portaria nº 1.631, de 1º de outubro de 2015. Aprova critérios e parâmetros para o planejamento e programação de ações e serviços de saúde no âmbito do SUS. Brasília, DF, 2015a. Disponível em: \url{https://bvsms.saude.gov.br/bvs/saudelegis/gm/2015/prt1631_01_10_2015.html}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2015b)]{brasil2015b}
+BRASIL. Ministério da Saúde. Secretaria de Atenção à Saúde. \textit{Critérios e parâmetros para o planejamento e programação de ações e serviços de saúde no âmbito do Sistema Único de Saúde}. Brasília, DF: Ministério da Saúde, 2015b. (Série Parâmetros SUS, v. 1). Disponível em: \url{https://fehosp.com.br/files/manuais/5ffa8d1e03f7edb01e1eed7b07178cfb.pdf}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2013)]{brasil2013teto}
+BRASIL. Ministério da Saúde. Portaria nº 2.355, de 10 de outubro de 2013. Altera a fórmula de cálculo do teto máximo das Equipes de Saúde da Família. Brasília, DF, 2013. Disponível em: \url{https://www.saude.mt.gov.br/storage/old/files/2355-[9229-191213-SES-MT].pdf}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2017)]{pnab2017}
+BRASIL. Ministério da Saúde. Portaria nº 2.436, de 21 de setembro de 2017. Aprova a Política Nacional de Atenção Básica. Brasília, DF, 2017. Disponível em: \url{https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2022a)]{brasil2022}
+BRASIL. Emenda Constitucional nº 120, de 5 de maio de 2022. Acrescenta §§ 7º, 8º, 9º, 10 e 11 ao art. 198 da Constituição Federal, para dispor sobre a responsabilidade financeira da União, corresponsável pelo SUS, na política remuneratória e na valorização dos profissionais que exercem atividades de agente comunitário de saúde e de agente de combate às endemias. Brasília, DF, 2022a. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc120.htm}. Acesso em: 15 nov. 2026.
+
+\bibitem[Brasil(2022b)]{brasil2022piso}
+BRASIL. Lei nº 14.434, de 4 de agosto de 2022. Altera a Lei nº 7.498, de 25 de junho de 1986, para instituir o piso salarial nacional do Enfermeiro, do Técnico de Enfermagem, do Auxiliar de Enfermagem e da Parteira. Brasília, DF, 2022b. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14434.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2026f)]{maismedicos2026}
+BRASIL. Ministério da Saúde. Portaria SGTES/MS nº 211, de 5 de março de 2026. Dispõe sobre o valor da bolsa-formação paga aos médicos participantes do Projeto Mais Médicos para o Brasil. \textit{Diário Oficial da União}, Brasília, DF, 6 mar. 2026f. Disponível em: \url{https://www.legisweb.com.br/legislacao/?id=491990}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2025a)]{brasil2025sm}
+BRASIL. Decreto nº 12.797, de 23 de dezembro de 2025. Dispõe sobre o valor do salário mínimo a vigorar a partir de 1º de janeiro de 2026. \textit{Diário Oficial da União}, Brasília, DF, 24 dez. 2025a. Disponível em: \url{https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/d12797.htm}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2025b)]{novopac2025}
+BRASIL. Ministério da Saúde. \textit{Manual de formalização de propostas}: Novo PAC Saúde. Brasília, DF: Ministério da Saúde, 2025b. Disponível em: \url{https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2025/manual-de-formalizacao-de-propostas-novo-pac-saude.pdf}. Acesso em: 11 nov. 2026.
+
+\bibitem[Brasil(2025c)]{pacselecao2025}
+BRASIL. Ministério da Saúde. Portaria GM/MS nº 6.640, de 20 de fevereiro de 2025. Institui o PAC Seleções -- Saúde 2025. Brasília, DF, 2025c. Disponível em: \url{https://bvsms.saude.gov.br/bvs/saudelegis/gm/2025/prt6640_20_02_2025.html}. Acesso em: 25 nov. 2026.
+
+\bibitem[Brasil(2026a)]{cnes2026}
+BRASIL. Ministério da Saúde. \textit{Cadastro Nacional de Estabelecimentos de Saúde --- CNES}. Brasília, DF: Ministério da Saúde, 2026a. Competência: julho de 2026. Disponível em: \url{https://cnes.datasus.gov.br/}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2026b)]{datasus2026}
+BRASIL. Ministério da Saúde. DATASUS. \textit{Transferência de arquivos dos sistemas SIA/SUS e SIH/SUS}. Brasília, DF: Ministério da Saúde, 2026b. Produção processada em 2025. Disponível em: \url{https://datasus.saude.gov.br/transferencia-de-arquivos/}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2026c)]{aps2026}
+BRASIL. Ministério da Saúde. \textit{Relatórios Públicos da APS}: cobertura potencial estimada da Atenção Primária à Saúde. Brasília, DF, 2026c. Município: Itaúna, código 313380; competência julho de 2026. Disponível em: \url{https://relatorioaps.saude.gov.br/cobertura/aps}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2026d)]{tabnet}
+BRASIL. Ministério da Saúde. DATASUS. \textit{Informações de Saúde (TABNET)}. Brasília, DF, 2026d. Disponível em: \url{https://datasus.saude.gov.br/informacoes-de-saude-tabnet/}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(2026e)]{siops}
+BRASIL. Ministério da Saúde. \textit{Sistema de Informações sobre Orçamentos Públicos em Saúde --- SIOPS}. Brasília, DF, 2026e. Itaúna, 2025, subfunção 301. Disponível em: \url{https://www.gov.br/saude/pt-br/acesso-a-informacao/siops}. Acesso em: 10 nov. 2026.
+
+\bibitem[Brasil(s.d.)]{sigtap}
+BRASIL. Ministério da Saúde. \textit{SIGTAP}: Sistema de Gerenciamento da Tabela de Procedimentos, Medicamentos e OPM do SUS. Brasília, DF, [s.d.]. Disponível em: \url{http://sigtap.datasus.gov.br/tabela-unificada/app/sec/inicio.jsp}. Acesso em: 10 nov. 2026.
+
+\bibitem[Castro et al.(2019)]{castro2019}
+CASTRO, M. C.; MASSUDA, A.; ALMEIDA, G.; MENEZES-FILHO, N. A.; ANDRADE, M. V.; NORONHA, K. V. M. S.; ROCHA, R.; MACINKO, J.; HONE, T.; TASCA, R. et al. Brazil's unified health system: the first 30 years and prospects for the future. \textit{The Lancet}, v. 394, n. 10195, p. 345--356, 2019.
+
+\bibitem[Church e ReVelle(1974)]{church1974}
+CHURCH, R.; REVELLE, C. The maximal covering location problem. \textit{Papers of the Regional Science Association}, v. 32, n. 1, p. 101--118, 1974. DOI: \url{https://doi.org/10.1007/BF01942293}.
+
+\bibitem[Contreras e Ortiz-Astorquiza(2019)]{contreras2019}
+CONTRERAS, I.; ORTIZ-ASTORQUIZA, C. Hierarchical facility location problems. In: LAPORTE, G.; NICKEL, S.; SALDANHA DA GAMA, F. (ed.). \textit{Location science}. 2. ed. Cham: Springer, 2019. p. 365--389. DOI: \url{https://doi.org/10.1007/978-3-030-32177-2_13}.
+
+\bibitem[Daskin(2008)]{daskin2008}
+DASKIN, M. S. What you should know about location modeling. \textit{Naval Research Logistics}, v. 55, n. 4, p. 283--294, 2008. DOI: \url{https://doi.org/10.1002/nav.20284}.
+
+\bibitem[Daskin e Dean(2004)]{daskin2004}
+DASKIN, M. S.; DEAN, L. K. Location of health care facilities. In: BRANDEAU, M. L.; SAINFORT, F.; PIERSKALLA, W. P. (ed.). \textit{Operations research and health care}: a handbook of methods and applications. Boston: Kluwer Academic, 2004. p. 43--76. DOI: \url{https://doi.org/10.1007/1-4020-8066-2_3}.
+
+\bibitem[Ehrgott(2005)]{ehrgott2005}
+EHRGOTT, M. \textit{Multicriteria optimization}. 2. ed. Berlin: Springer, 2005. DOI: \url{https://doi.org/10.1007/3-540-27659-9}.
+
+\bibitem[Elorza et al.(2022)]{elorza2022}
+ELORZA, M. E.; MOSCOSO, N. S.; BLANCO, A. M. Assessing performance in health care: a mathematical programming approach for the re-design of primary health care networks. \textit{Socio-Economic Planning Sciences}, v. 84, artigo 101454, 2022.
+
+\bibitem[Freire et al.(2021)]{freire2021}
+FREIRE, D. E. W. G.; FREIRE, A. R.; LUCENA, E. H. G.; CAVALCANTI, Y. W. A PNAB 2017 e o número de agentes comunitários de saúde na atenção primária do Brasil. \textit{Revista de Saúde Pública}, v. 55, artigo 85, 2021.
+
+\bibitem[Guagliardo(2004)]{guagliardo2004}
+GUAGLIARDO, M. F. Spatial accessibility of primary care: concepts, methods and challenges. \textit{International Journal of Health Geographics}, v. 3, artigo 3, 2004. DOI: \url{https://doi.org/10.1186/1476-072X-3-3}.
+
+\bibitem[Guerriero et al.(2016)]{guerriero2016}
+GUERRIERO, F.; MIGLIONICO, G.; OLIVITO, F. Location and reorganization problems: the Calabrian health care system case. \textit{European Journal of Operational Research}, v. 250, n. 3, p. 939--954, 2016.
+
+\bibitem[Hakimi(1964)]{hakimi1964}
+HAKIMI, S. L. Optimum locations of switching centers and the absolute centers and medians of a graph. \textit{Operations Research}, v. 12, n. 3, p. 450--459, 1964. DOI: \url{https://doi.org/10.1287/opre.12.3.450}.
+
+\bibitem[Hansen(1959)]{hansen1959}
+HANSEN, W. G. How accessibility shapes land use. \textit{Journal of the American Institute of Planners}, v. 25, n. 2, p. 73--76, 1959.
+
+\bibitem[Hodgson(1988)]{hodgson1988}
+HODGSON, M. J. An hierarchical location-allocation model for primary health care delivery in a developing area. \textit{Social Science \& Medicine}, v. 26, n. 1, p. 153--161, 1988.
+
+\bibitem[Huangfu e Hall(2018)]{huangfu2018}
+HUANGFU, Q.; HALL, J. A. J. Parallelizing the dual revised simplex method. \textit{Mathematical Programming Computation}, v. 10, n. 1, p. 119--142, 2018. DOI: \url{https://doi.org/10.1007/s12532-017-0130-5}.
+
+\bibitem[IBGE(2022)]{ibge2022}
+IBGE. Instituto Brasileiro de Geografia e Estatística. \textit{Censo Demográfico 2022}: agregados por setores censitários e resultados de população. Rio de Janeiro: IBGE, 2022. Disponível em: \url{https://www.ibge.gov.br/estatisticas/sociais/populacao/22827-censo-demografico-2022.html}. Acesso em: 10 nov. 2026.
+
+\bibitem[IBGE(2025)]{ibge2025est}
+IBGE. Instituto Brasileiro de Geografia e Estatística. \textit{Estimativas da população residente nos municípios brasileiros}: 2025. Rio de Janeiro: IBGE, 2025. Disponível em: \url{https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2025/POP2025_20251031.pdf}. Acesso em: 17 nov. 2026.
+
+\bibitem[IBGE(2026)]{ibge2026est}
+IBGE. Instituto Brasileiro de Geografia e Estatística. \textit{Estimativas da população residente nos municípios brasileiros}: 2026. Rio de Janeiro: IBGE, 2026. Disponível em: \url{https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2026/POP2026_20261029.pdf}. Acesso em: 17 nov. 2026.
+
+\bibitem[Itaúna(2025)]{itauna2025}
+ITAÚNA. Lei nº 6.273, de 30 de dezembro de 2025. Estima a receita e fixa a despesa do Município de Itaúna para o exercício de 2026 e dá outras providências. \textit{Jornal Oficial do Município de Itaúna}, n. 2.623, 30 dez. 2025. Disponível em: \url{https://sapl.itauna.mg.leg.br/media/sapl/public/normajuridica/2025/11182/lei_6273-2026_-_loa_2026.pdf}. Acesso em: 11 nov. 2026.
+
+\bibitem[Joseph e Bantock(1982)]{joseph1982}
+JOSEPH, A. E.; BANTOCK, P. R. Measuring potential physical accessibility to general practitioners in rural areas: a method and case study. \textit{Social Science \& Medicine}, v. 16, n. 1, p. 85--90, 1982. DOI: \url{https://doi.org/10.1016/0277-9536(82)90428-2}.
+
+\bibitem[Makhorin(2008)]{glpk}
+MAKHORIN, A. \textit{GLPK (GNU Linear Programming Kit)}. 2008. Disponível em: \url{http://www.gnu.org/s/glpk/glpk.html}. Acesso em: 25 nov. 2026.
+
+\bibitem[Mendes(2010)]{mendes2010}
+MENDES, E. V. As redes de atenção à saúde. \textit{Ciência \& Saúde Coletiva}, v. 15, n. 5, p. 2297--2305, 2010.
+
+\bibitem[Mi\c{c} et al.(2019)]{mic2019}
+MI\c{C}, P.; KOYUNCU, M.; HALLAK, J. Primary health care center (PHCC) location-allocation with multi-objective modelling: a case study in Idleb, Syria. \textit{International Journal of Environmental Research and Public Health}, v. 16, n. 5, artigo 811, 2019.
+
+\bibitem[Mitchell et al.(2011)]{mitchell2011}
+MITCHELL, S.; O'SULLIVAN, M.; DUNNING, I. \textit{PuLP}: a linear programming toolkit for Python. Auckland: The University of Auckland, 2011. Disponível em: \url{https://optimization-online.org/2011/09/3178/}. Acesso em: 24 nov. 2026.
+
+\bibitem[Narula(1986)]{narula1986}
+NARULA, S. C. Minisum hierarchical location-allocation problems on a network: a survey. \textit{Annals of Operations Research}, v. 6, p. 255--272, 1986.
+
+\bibitem[Paim et al.(2011)]{paim2011}
+PAIM, J.; TRAVASSOS, C.; ALMEIDA, C.; BAHIA, L.; MACINKO, J. The Brazilian health system: history, advances, and challenges. \textit{The Lancet}, v. 377, n. 9779, p. 1778--1797, 2011.
+
+\bibitem[Rahman e Smith(2000)]{rahman2000}
+RAHMAN, S.; SMITH, D. K. Use of location-allocation models in health service development planning in developing nations. \textit{European Journal of Operational Research}, v. 123, n. 3, p. 437--452, 2000. DOI: \url{https://doi.org/10.1016/S0377-2217(99)00289-1}.
+
+\bibitem[Rodriguez Santana et al.(2023)]{santana2023}
+RODRIGUEZ SANTANA, I.; MASON, A.; GUTACKER, N.; KASTERIDIS, P.; SANTOS, R.; RICE, N. Need, demand, supply in health care: working definitions, and their implications for defining access. \textit{Health Economics, Policy and Law}, v. 18, n. 1, p. 1--13, 2023. DOI: \url{https://doi.org/10.1017/S1744133121000293}.
+
+\bibitem[\c{S}ahin e Süral(2007)]{sahin2007}
+\c{S}AH\.{I}N, G.; SÜRAL, H. A review of hierarchical facility location models. \textit{Computers \& Operations Research}, v. 34, n. 8, p. 2310--2331, 2007. DOI: \url{https://doi.org/10.1016/j.cor.2005.09.005}.
+
+\bibitem[Schultz(1970)]{schultz1970}
+SCHULTZ, G. P. The logic of health care facility planning. \textit{Socio-Economic Planning Sciences}, v. 4, n. 3, p. 383--393, 1970.
+
+\bibitem[Shengelia et al.(2005)]{shengelia2005}
+SHENGELIA, B.; TANDON, A.; ADAMS, O. B.; MURRAY, C. J. L. Access, utilization, quality, and effective coverage: an integrated conceptual framework and measurement strategy. \textit{Social Science \& Medicine}, v. 61, n. 1, p. 97--109, 2005. DOI: \url{https://doi.org/10.1016/j.socscimed.2004.11.055}.
+
+\bibitem[Snyder(2006)]{snyder2006}
+SNYDER, L. V. Facility location under uncertainty: a review. \textit{IIE Transactions}, v. 38, n. 7, p. 547--564, 2006.
+
+\bibitem[Tesouro Nacional(2026)]{tesouro2026}
+TESOURO NACIONAL. \textit{Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro --- Siconfi}: Relatório Resumido da Execução Orçamentária, Anexo 02, 4º bimestre de 2026. Ente: Prefeitura Municipal de Itaúna, código IBGE 3133808. Disponível em: \url{https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=4&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo+02&id_ente=3133808}. Acesso em: 11 nov. 2026.
+
+\end{thebibliography}
+
+\input{apendice_fontes.tex}
+
+\end{document}

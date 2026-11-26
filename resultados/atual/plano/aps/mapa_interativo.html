@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_51e2510e622fee416a3c4a83ac25fd61 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style="position:fixed;bottom:25px;left:25px;z-index:9999;background:white;padding:12px;border:1px solid #999;font-size:13px"><div><span style="color:#969696">&#9632;</span> UBS existente</div><div><span style="color:#7030A0">&#9632;</span> Nova UBS urbana</div><div><span style="color:#D97706">&#9632;</span> Nova UBS rural</div><div><span style="color:#008060">&#9632;</span> Base e ligação móvel</div></div>
+    
+            <div class="folium-map" id="map_51e2510e622fee416a3c4a83ac25fd61" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_51e2510e622fee416a3c4a83ac25fd61 = L.map(
+                "map_51e2510e622fee416a3c4a83ac25fd61",
+                {
+                    center: [-20.08717768190863, -44.58489192701471],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_10948bc635bbc0f603be20d3022fc157 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_10948bc635bbc0f603be20d3022fc157.addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+        
+    
+            var feature_group_5c13f2c408faf61e45b6b532204cc36b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c2c072f8c1760d2be72c12fad205c719 = L.circleMarker(
+                [-20.074736127153457, -44.57586432642943],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.078900139674568, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c2c072f8c1760d2be72c12fad205c719.bindTooltip(
+                `<div>
+                     Centro: 8.185 hab (bairro) → UBS ALTO DO ROSARIO (0.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3f9ad30c0e9db505ada16cc6bf212212 = L.circleMarker(
+                [-20.065375230820468, -44.55813204230321],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.385053065608355, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_3f9ad30c0e9db505ada16cc6bf212212.bindTooltip(
+                `<div>
+                     Irmãos Auler: 2.531 hab (bairro) → UBS IRMAOS AULER (2.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13097eb09051af330aafeb01fa9e1119 = L.circleMarker(
+                [-20.06506788394892, -44.54654610740504],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.409709859624973, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_13097eb09051af330aafeb01fa9e1119.bindTooltip(
+                `<div>
+                     Olaria: 2.546 hab (bairro) → NOVA UBS (Setor 313380805000177 (urbana)) (1.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fd61e649e87da127e5aef2e15dec789e = L.circleMarker(
+                [-20.06921062017536, -44.55275514877218],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.960226008517657, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_fd61e649e87da127e5aef2e15dec789e.bindTooltip(
+                `<div>
+                     Cidade Leonane: 1.279 hab (bairro) → NOVA UBS (Setor 313380805000177 (urbana)) (2.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f31c421951bce8052425d56575ef3f1 = L.circleMarker(
+                [-20.06537011120118, -44.56514586378994],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.3270616170911556, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_6f31c421951bce8052425d56575ef3f1.bindTooltip(
+                `<div>
+                     Vila Vilaça: 674 hab (bairro) → UBS IRMAOS AULER (0.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_edd9bcba89db8fbd4827f51d43682f91 = L.circleMarker(
+                [-20.06941110300232, -44.56955938187638],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.981746613905948, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_edd9bcba89db8fbd4827f51d43682f91.bindTooltip(
+                `<div>
+                     Vila Tavares: 571 hab (bairro) → UBS VILA TAVARES (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae51e6ff73fa1f9f399940cf387ec1a4 = L.circleMarker(
+                [-20.0695865530444, -44.56381133227895],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.62810284441584, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_ae51e6ff73fa1f9f399940cf387ec1a4.bindTooltip(
+                `<div>
+                     Padre Eustáquio: 3.337 hab (bairro) → UBS IRMAOS AULER (0.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_00143ebd70466d5a589b2b0c0fa18b2c = L.circleMarker(
+                [-20.06595958676362, -44.57206744580716],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_00143ebd70466d5a589b2b0c0fa18b2c.bindTooltip(
+                `<div>
+                     Fazenda da Chácara: 37 hab (bairro) → UBS VILA TAVARES (0.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_593079bcf101198c1afff693cfb85f7d = L.circleMarker(
+                [-20.06403851800423, -44.56692089998187],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_593079bcf101198c1afff693cfb85f7d.bindTooltip(
+                `<div>
+                     Antunes: 239 hab (bairro) → UBS IRMAOS AULER (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c674bd7791aaa7581b2e6022d05f3ff = L.circleMarker(
+                [-20.063443523607106, -44.57030297380291],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_0c674bd7791aaa7581b2e6022d05f3ff.bindTooltip(
+                `<div>
+                     Eldorado: 78 hab (bairro) → UBS IRMAOS AULER (1.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20c38262911a480b523017697b3775a5 = L.circleMarker(
+                [-20.071876383492384, -44.57018673739953],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_20c38262911a480b523017697b3775a5.bindTooltip(
+                `<div>
+                     Vila Santiago: 34 hab (bairro) → UBS VILA TAVARES (0.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d9b454a13892c311f7b6523cd429b73 = L.circleMarker(
+                [-20.075039475533394, -44.5583028683379],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.9950025758138255, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_0d9b454a13892c311f7b6523cd429b73.bindTooltip(
+                `<div>
+                     Residencial Veredas: 2.301 hab (bairro) → UBS VARZEA DA OLARIA (1.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_367bb9d70835d1774687a4b2fe01ce0e = L.circleMarker(
+                [-20.083454589867586, -44.57047784857839],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.242403142058608, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_367bb9d70835d1774687a4b2fe01ce0e.bindTooltip(
+                `<div>
+                     Lourdes: 5.396 hab (bairro) → UBS ALTO DO ROSARIO (0.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b42ab3af6094f82fff160049952c5287 = L.circleMarker(
+                [-20.080685007800835, -44.56720389736481],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b42ab3af6094f82fff160049952c5287.bindTooltip(
+                `<div>
+                     Vila Mozart: 240 hab (bairro) → UBS ALTO DO ROSARIO (2.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af5405766e38bb4cd8a7ad21f761f69e = L.circleMarker(
+                [-20.08408094346848, -44.566808540178],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.850027451561384, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_af5405766e38bb4cd8a7ad21f761f69e.bindTooltip(
+                `<div>
+                     Nova Vila Mozart: 1.232 hab (bairro) → UBS MORRO DO ENGENHO (1.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca3c2dec71fd353472475b7f90518dcd = L.circleMarker(
+                [-20.09690986314248, -44.56853907400943],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.361969718871286, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_ca3c2dec71fd353472475b7f90518dcd.bindTooltip(
+                `<div>
+                     Fazenda Morro do Engenho: 1.035 hab (bairro) → UBS MORRO DO ENGENHO (0.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65662deddc0130600934fa8fb5c29393 = L.circleMarker(
+                [-20.093524678256163, -44.56380334136408],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.3082025082903104, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_65662deddc0130600934fa8fb5c29393.bindTooltip(
+                `<div>
+                     Vargem Verde: 394 hab (bairro) → UBS MORRO DO ENGENHO (0.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e43ac4c86f6065efa18637e988c62d6 = L.circleMarker(
+                [-20.0864690125302, -44.57878133959719],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.359210794212756, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_2e43ac4c86f6065efa18637e988c62d6.bindTooltip(
+                `<div>
+                     Pio XII: 1.034 hab (bairro) → UBS PIO XII (0.1 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da0ef9538cfbe41d23cdb85b4ed68392 = L.circleMarker(
+                [-20.082192905595, -44.57673744517043],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.748013918961717, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_da0ef9538cfbe41d23cdb85b4ed68392.bindTooltip(
+                `<div>
+                     Santo Antônio: 1.189 hab (bairro) → UBS ALTO DO ROSARIO (0.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a7598e7ff997eafe3414f242c6535ee = L.circleMarker(
+                [-20.085889398117544, -44.5750679281639],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.937212548890976, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_2a7598e7ff997eafe3414f242c6535ee.bindTooltip(
+                `<div>
+                     Nogueira Machado: 1.732 hab (bairro) → UBS ALTO DO ROSARIO (0.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a2a678fd13446b43e6c4547d24365695 = L.circleMarker(
+                [-20.09014630338914, -44.58252781736324],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.582790548402833, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_a2a678fd13446b43e6c4547d24365695.bindTooltip(
+                `<div>
+                     Residencial Morro do Sol: 1.560 hab (bairro) → UBS MORADA NOVA (0.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_986aa3d8974b6e08336c5f4dc97b2e17 = L.circleMarker(
+                [-20.092413415794294, -44.57341047694862],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.537282753270733, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_986aa3d8974b6e08336c5f4dc97b2e17.bindTooltip(
+                `<div>
+                     Nogueirinha: 741 hab (bairro) → UBS MORRO DO ENGENHO (0.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eef3812967feea0cf1b20b59e45d65f8 = L.circleMarker(
+                [-20.084469955805456, -44.58418927986672],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.06314992855737, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_eef3812967feea0cf1b20b59e45d65f8.bindTooltip(
+                `<div>
+                     Piedade: 2.957 hab (bairro) → UBS PIEDADE (0.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_29443edb456a931694f72adda8deb9b6 = L.circleMarker(
+                [-20.07773575634583, -44.58448500869345],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.775559880857171, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_29443edb456a931694f72adda8deb9b6.bindTooltip(
+                `<div>
+                     Cerqueira Lima: 2.177 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (1.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da4464f1762671c0f88e2faa594f7b35 = L.circleMarker(
+                [-20.07514145793262, -44.58771083901992],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.808096811247928, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_da4464f1762671c0f88e2faa594f7b35.bindTooltip(
+                `<div>
+                     Belveder: 1.669 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (1.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c8c53181d9882b9da000e6ffa9cdf713 = L.circleMarker(
+                [-20.07324933698384, -44.5968484736267],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.119530050364647, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c8c53181d9882b9da000e6ffa9cdf713.bindTooltip(
+                `<div>
+                     Tropical: 350 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (0.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d62f312a7fdb4e601b8bc1da4143ad38 = L.circleMarker(
+                [-20.08316993601714, -44.58906444310325],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.756877221861964, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_d62f312a7fdb4e601b8bc1da4143ad38.bindTooltip(
+                `<div>
+                     Vila Nazaré: 815 hab (bairro) → UBS PIEDADE (2.1 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88062fa03088ade3113fd3099b05ddcc = L.circleMarker(
+                [-20.08530685444066, -44.58847123230523],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.999419490976675, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_88062fa03088ade3113fd3099b05ddcc.bindTooltip(
+                `<div>
+                     Residencial Novo Horizonte: 900 hab (bairro) → UBS ZONA RURAL (0.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_745b38e7fea304e6ec064b02db679246 = L.circleMarker(
+                [-20.06597835396921, -44.5774029041174],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.029743438244032, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_745b38e7fea304e6ec064b02db679246.bindTooltip(
+                `<div>
+                     Universitário: 585 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (2.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6dd0998f783c278ea7f1b98af6170c2 = L.circleMarker(
+                [-20.0700625944526, -44.58279228635028],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.679719632090984, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_a6dd0998f783c278ea7f1b98af6170c2.bindTooltip(
+                `<div>
+                     das Graças: 2.712 hab (bairro) → UBS GRACAS (1.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4db1a86124bb489eff0962ebec22535 = L.circleMarker(
+                [-20.065927459373057, -44.588114774300735],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.2586554917191175, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b4db1a86124bb489eff0962ebec22535.bindTooltip(
+                `<div>
+                     São Judas Tadeu: 382 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (0.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e8a1392b3caad6236b5fc3a6b334ca2 = L.circleMarker(
+                [-20.067531047683254, -44.587587151612446],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_6e8a1392b3caad6236b5fc3a6b334ca2.bindTooltip(
+                `<div>
+                     Vila Augusto Chaves: 102 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_52819b036d4b71818022cc39ee0d5fd6 = L.circleMarker(
+                [-20.06608383746776, -44.59662617919186],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_52819b036d4b71818022cc39ee0d5fd6.bindTooltip(
+                `<div>
+                     Residencial Victor Gonçalves de Souza: 319 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51cd9c8c453e349db0c5af90574394d8 = L.circleMarker(
+                [-20.06049087493883, -44.56139764429564],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.077175279380342, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_51cd9c8c453e349db0c5af90574394d8.bindTooltip(
+                `<div>
+                     Santa Mônica: 598 hab (bairro) → NOVA UBS (Setor 313380805000177 (urbana)) (2.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d21b53e3717c72f49fd24d604b5e2c3e = L.circleMarker(
+                [-20.05639337586125, -44.56659597169936],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.398014835501437, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_d21b53e3717c72f49fd24d604b5e2c3e.bindTooltip(
+                `<div>
+                     Conjunto Habitacional Jadir Marinho de Faria: 3.180 hab (bairro) → UBS JADIR MARINHO (1.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_54efa666d1ef315d24970375ff244c48 = L.circleMarker(
+                [-20.070123347551466, -44.610809852268304],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.839300562205468, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_54efa666d1ef315d24970375ff244c48.bindTooltip(
+                `<div>
+                     Santanense: 3.485 hab (bairro) → UBS SANTANENSE (1.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8796374ab5fa47dde7fabc9b2e4549b = L.circleMarker(
+                [-20.0614649275825, -44.61482548106672],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_e8796374ab5fa47dde7fabc9b2e4549b.bindTooltip(
+                `<div>
+                     Vila Santa Maria: 143 hab (bairro) → NOVA UBS (Residencial Victor Gonçalves de Souza) (2.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70868c951ff4da8a536d0b00c2343605 = L.circleMarker(
+                [-20.084012217539595, -44.595785072408894],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.719641229170802, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_70868c951ff4da8a536d0b00c2343605.bindTooltip(
+                `<div>
+                     Chácara Quitão: 1.178 hab (bairro) → UBS ZONA RURAL (0.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53a90f0944ecfe05902b75faf50cbbeb = L.circleMarker(
+                [-20.087222663996823, -44.59387368118797],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_53a90f0944ecfe05902b75faf50cbbeb.bindTooltip(
+                `<div>
+                     Vila Washington: 276 hab (bairro) → UBS ZONA RURAL (0.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f357af5f67b8c123f19d013873a09f35 = L.circleMarker(
+                [-20.095531366357903, -44.60403865615879],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.224889135166872, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_f357af5f67b8c123f19d013873a09f35.bindTooltip(
+                `<div>
+                     Garcias: 3.064 hab (bairro) → UBS GARCIAS (2.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_501e4999695e2b70496aa08b44ba9222 = L.circleMarker(
+                [-20.08845001019072, -44.59911765512764],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.240753353586004, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_501e4999695e2b70496aa08b44ba9222.bindTooltip(
+                `<div>
+                     São Geraldo: 647 hab (bairro) → UBS SAO GERALDO (0.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b165940029cef241ed7af22a18b8056 = L.circleMarker(
+                [-20.082602017544872, -44.60210285629441],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_7b165940029cef241ed7af22a18b8056.bindTooltip(
+                `<div>
+                     Alaíta: 65 hab (bairro) → UBS SANTANENSE (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_897e7c4bcbcfb539895dca2b30e1ee97 = L.circleMarker(
+                [-20.09651966587351, -44.59688374593315],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.128189513750995, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_897e7c4bcbcfb539895dca2b30e1ee97.bindTooltip(
+                `<div>
+                     Aeroporto: 3.000 hab (bairro) → UBS CIDADE NOVA (0.9 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d6d639eac489aa296a290a6edee81923 = L.circleMarker(
+                [-20.0925507064639, -44.5945581016306],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.987458750985886, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_d6d639eac489aa296a290a6edee81923.bindTooltip(
+                `<div>
+                     Residencial São Geraldo: 1.291 hab (bairro) → UBS SAO GERALDO (0.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f425a4e66d76dcb831b35feb5682264 = L.circleMarker(
+                [-20.102988911158388, -44.59739625447482],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.614727713563193, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_5f425a4e66d76dcb831b35feb5682264.bindTooltip(
+                `<div>
+                     Três Marias: 2.672 hab (bairro) → UBS CIDADE NOVA (1.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c27db50f066b7d0455c18c3d9be6050 = L.circleMarker(
+                [-20.09609777984822, -44.58770866211753],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.762045059471388, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_6c27db50f066b7d0455c18c3d9be6050.bindTooltip(
+                `<div>
+                     Morada Nova: 6.818 hab (bairro) → UBS MORADA NOVA (1.1 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_476fb8731228c868d2403f2f17efdd5b = L.circleMarker(
+                [-20.104808043229244, -44.591356399184725],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.368067206839902, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_476fb8731228c868d2403f2f17efdd5b.bindTooltip(
+                `<div>
+                     Cidade Nova: 3.159 hab (bairro) → NOVA UBS (Setor 313380805000191 (urbana)) (1.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5305aa76e10abc3fff5b71862cf06ac = L.circleMarker(
+                [-20.08330689733737, -44.60720612813542],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.293344604746558, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b5305aa76e10abc3fff5b71862cf06ac.bindTooltip(
+                `<div>
+                     Residencial Santanense: 1.426 hab (bairro) → UBS SANTANENSE (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_182b6e6ea9da9106738bd104fc3971e0 = L.circleMarker(
+                [-20.08800264800348, -44.61213201286342],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.833373611994018, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_182b6e6ea9da9106738bd104fc3971e0.bindTooltip(
+                `<div>
+                     Parque Jardim Santanense: 5.929 hab (bairro) → UBS PARQUE JARDIM SANTANENSE RESIDENCIAL SANTANENSE (0.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_423f7ea2c3cc6f0b48e9f92fa4f8a8bc = L.circleMarker(
+                [-20.090996727330108, -44.61816522134711],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.195171382104859, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_423f7ea2c3cc6f0b48e9f92fa4f8a8bc.bindTooltip(
+                `<div>
+                     São Bento: 634 hab (bairro) → UBS ITAUNENSE (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f3b1d0a30f51d9580a0e90d21c3e68f = L.circleMarker(
+                [-20.097312404284843, -44.6122032889731],
+                {"bubblingMouseEvents": true, "color": "#2e86c1", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2e86c1", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.882740135717588, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_6f3b1d0a30f51d9580a0e90d21c3e68f.bindTooltip(
+                `<div>
+                     Itaunense: 4.264 hab (bairro) → UBS ITAUNENSE (2.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45c09b253b9906ed17da3490ff562aeb = L.circleMarker(
+                [-20.1898292218544, -44.56067015307314],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_45c09b253b9906ed17da3490ff562aeb.bindTooltip(
+                `<div>
+                     Setor 313380805000108 (urbana): 274 hab (setor) → NOVA UBS (Setor 313380805000185 (rural)) (1.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9fa62a92c5f747b54285f0c75aad123f = L.circleMarker(
+                [-20.16629507827923, -44.612938295585],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_9fa62a92c5f747b54285f0c75aad123f.bindTooltip(
+                `<div>
+                     Setor 313380805000111 (rural): 147 hab (setor) → NOVA UBS (Setor 313380805000188 (rural)) (2.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e79d5d5afa2a0e42f564507e7c73e20 = L.circleMarker(
+                [-20.143462768473853, -44.606718703667006],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.175911662272945, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_8e79d5d5afa2a0e42f564507e7c73e20.bindTooltip(
+                `<div>
+                     Setor 313380805000112 (urbana): 363 hab (setor) → NOVA UBS (Setor 313380805000188 (rural)) (1.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3c8dbb6fdcbd354f06081e507abc2ab1 = L.circleMarker(
+                [-20.018845846998705, -44.664657971984525],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.9593979999028726, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_3c8dbb6fdcbd354f06081e507abc2ab1.bindTooltip(
+                `<div>
+                     Setor 313380805000115 (rural): 564 hab (setor) → NOVA UBS (Setor 313380805000115 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cda84da0eb15dd5a9d854f39b621504f = L.circleMarker(
+                [-20.00863794285905, -44.653185915941606],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_cda84da0eb15dd5a9d854f39b621504f.bindTooltip(
+                `<div>
+                     Setor 313380805000116 (rural): 272 hab (setor) → NOVA UBS (Setor 313380805000115 (rural)) (1.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_051c00ce710e386021c5eff315ef656e = L.circleMarker(
+                [-19.97257115088674, -44.601519992962416],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.5787814100448805, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_051c00ce710e386021c5eff315ef656e.bindTooltip(
+                `<div>
+                     Setor 313380805000118 (rural): 461 hab (setor) → NOVA UBS (Setor 313380805000174 (rural)) (6.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fce607c7bf5b9d1fdf856d79f2a8d9ed = L.circleMarker(
+                [-20.058567535233024, -44.554743287660855],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.361420977398033, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_fce607c7bf5b9d1fdf856d79f2a8d9ed.bindTooltip(
+                `<div>
+                     Setor 313380805000146 (urbana): 407 hab (setor) → NOVA UBS (Setor 313380805000177 (urbana)) (2.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45ec7d1f8dc4079477081cfc676efb95 = L.circleMarker(
+                [-20.12343419551709, -44.54090267724551],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.9928740131902227, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_45ec7d1f8dc4079477081cfc676efb95.bindTooltip(
+                `<div>
+                     Setor 313380805000148 (urbana): 574 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (2.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c998bbffc544de4dc5fc8992db78d317 = L.circleMarker(
+                [-20.08824582405858, -44.56432137166863],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.205734146744169, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c998bbffc544de4dc5fc8992db78d317.bindTooltip(
+                `<div>
+                     Setor 313380805000173 (urbana): 637 hab (setor) → UBS MORRO DO ENGENHO (0.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_914e7e9806841b5c2d27eb21ff9174f9 = L.circleMarker(
+                [-20.01136377449986, -44.5511183261318],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.81481758525397, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_914e7e9806841b5c2d27eb21ff9174f9.bindTooltip(
+                `<div>
+                     Setor 313380805000174 (rural): 524 hab (setor) → NOVA UBS (Setor 313380805000174 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4db73ace1613dca69daf3b1cbab59cc = L.circleMarker(
+                [-20.04837691105411, -44.56712505569389],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.0035934199324603, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b4db73ace1613dca69daf3b1cbab59cc.bindTooltip(
+                `<div>
+                     Setor 313380805000175 (urbana): 325 hab (setor) → UBS VARZEA DA OLARIA (2.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b242d8183f967605397fdd2f61f4f459 = L.circleMarker(
+                [-20.085819787776742, -44.51445886080823],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.4138099154353614, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b242d8183f967605397fdd2f61f4f459.bindTooltip(
+                `<div>
+                     Setor 313380805000176 (rural): 420 hab (setor) → NOVA UBS (Setor 313380805000177 (urbana)) (4.1 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_820828e22de5aa63437e490764ef9039 = L.circleMarker(
+                [-20.055393794379786, -44.53610700291973],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.797124866478726, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_820828e22de5aa63437e490764ef9039.bindTooltip(
+                `<div>
+                     Setor 313380805000177 (urbana): 828 hab (setor) → NOVA UBS (Setor 313380805000177 (urbana)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_39c09edf855654943441d4067119c615 = L.circleMarker(
+                [-20.1408116601892, -44.49350004364612],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.326036613298584, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_39c09edf855654943441d4067119c615.bindTooltip(
+                `<div>
+                     Setor 313380805000178 (rural): 398 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (6.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f1fc95efe81991c5eff3beb42747d62 = L.circleMarker(
+                [-20.12670596926631, -44.524214208410754],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_2f1fc95efe81991c5eff3beb42747d62.bindTooltip(
+                `<div>
+                     Setor 313380805000179 (urbana): 55 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (3.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02c195804d30f25863ff1672f0ae5b48 = L.circleMarker(
+                [-20.13804266064109, -44.52674346410157],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_02c195804d30f25863ff1672f0ae5b48.bindTooltip(
+                `<div>
+                     Setor 313380805000180 (urbana): 66 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (2.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1cb9ed56e0d71068a941f5da8fc1b7b2 = L.circleMarker(
+                [-20.11828228732881, -44.574361875624966],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_1cb9ed56e0d71068a941f5da8fc1b7b2.bindTooltip(
+                `<div>
+                     Setor 313380805000182 (urbana): 144 hab (setor) → NOVA UBS (Setor 313380805000191 (urbana)) (3.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4b050e077d12071778c7c6fed8ca8d66 = L.circleMarker(
+                [-20.120744521101503, -44.54840735555743],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_4b050e077d12071778c7c6fed8ca8d66.bindTooltip(
+                `<div>
+                     Setor 313380805000183 (urbana): 184 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (2.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7c759fe59b0940940c6a4a193f7f8a5 = L.circleMarker(
+                [-20.1230741923029, -44.546161527462566],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_e7c759fe59b0940940c6a4a193f7f8a5.bindTooltip(
+                `<div>
+                     Setor 313380805000184 (urbana): 109 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (2.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5338a07b0209e5a0320aac9d606b120 = L.circleMarker(
+                [-20.18940935151268, -44.569843039629234],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_a5338a07b0209e5a0320aac9d606b120.bindTooltip(
+                `<div>
+                     Setor 313380805000185 (rural): 178 hab (setor) → NOVA UBS (Setor 313380805000185 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64ed0feb153d549c2837303d43e4bd1c = L.circleMarker(
+                [-20.17819383935871, -44.56436556334993],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_64ed0feb153d549c2837303d43e4bd1c.bindTooltip(
+                `<div>
+                     Setor 313380805000186 (urbana): 33 hab (setor) → NOVA UBS (Setor 313380805000185 (rural)) (1.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c85f67d2023b30be41f85babfea0d94f = L.circleMarker(
+                [-20.18100701925818, -44.55475318057105],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c85f67d2023b30be41f85babfea0d94f.bindTooltip(
+                `<div>
+                     Setor 313380805000187 (urbana): 35 hab (setor) → NOVA UBS (Setor 313380805000185 (rural)) (1.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ab116f8a0f18898975a93543f65312f = L.circleMarker(
+                [-20.15235536933008, -44.59855614912637],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_4ab116f8a0f18898975a93543f65312f.bindTooltip(
+                `<div>
+                     Setor 313380805000188 (rural): 311 hab (setor) → NOVA UBS (Setor 313380805000188 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82b6d1df84f11c26c12ba741de8edcda = L.circleMarker(
+                [-20.106113967060427, -44.60137421837241],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.756877221861964, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_82b6d1df84f11c26c12ba741de8edcda.bindTooltip(
+                `<div>
+                     Setor 313380805000189 (urbana): 815 hab (setor) → NOVA UBS (Setor 313380805000191 (urbana)) (1.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5ab8ade855ccfaf341ed88b95c7e4803 = L.circleMarker(
+                [-20.10497873167828, -44.60253779155086],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.68867286047538, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_5ab8ade855ccfaf341ed88b95c7e4803.bindTooltip(
+                `<div>
+                     Setor 313380805000190 (urbana): 490 hab (setor) → NOVA UBS (Setor 313380805000191 (urbana)) (1.5 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3d41b155c2c0fc5113ba53ef768fba6 = L.circleMarker(
+                [-20.117835499504817, -44.6002051933114],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_d3d41b155c2c0fc5113ba53ef768fba6.bindTooltip(
+                `<div>
+                     Setor 313380805000191 (urbana): 319 hab (setor) → NOVA UBS (Setor 313380805000191 (urbana)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5c659025f20e4399cc2bc806eda2938 = L.circleMarker(
+                [-20.10317653807749, -44.66015832537298],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.720610017980445, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_a5c659025f20e4399cc2bc806eda2938.bindTooltip(
+                `<div>
+                     Setor 313380805000192 (rural): 498 hab (setor) → NOVA UBS (Setor 313380805000197 (rural)) (7.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fc4d8b83bbf07aef251a99c4866037b = L.circleMarker(
+                [-20.07445648613817, -44.66752309969326],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_7fc4d8b83bbf07aef251a99c4866037b.bindTooltip(
+                `<div>
+                     Setor 313380805000193 (urbana): 92 hab (setor) → NOVA UBS (Setor 313380805000197 (rural)) (3.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e5f31d97c37005791969ebffef58d9dd = L.circleMarker(
+                [-20.07964215637296, -44.61156354319422],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_e5f31d97c37005791969ebffef58d9dd.bindTooltip(
+                `<div>
+                     Setor 313380805000194 (urbana): 249 hab (setor) → UBS SANTANENSE (0.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc7957bcac48bf9e6ca15760381262e7 = L.circleMarker(
+                [-20.08855257784276, -44.62085967237213],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.2162704492179115, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_cc7957bcac48bf9e6ca15760381262e7.bindTooltip(
+                `<div>
+                     Setor 313380805000195 (urbana): 640 hab (setor) → UBS SANTANENSE (2.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa9d3fc62637cf9b843dc161e8dab7a3 = L.circleMarker(
+                [-20.110135129407546, -44.62345098849204],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_fa9d3fc62637cf9b843dc161e8dab7a3.bindTooltip(
+                `<div>
+                     Setor 313380805000196 (urbana): 182 hab (setor) → NOVA UBS (Setor 313380805000191 (urbana)) (2.6 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_751be5e576c339b0660251ef6a796efd = L.circleMarker(
+                [-20.04401688102675, -44.68259190061456],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.392079523285718, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_751be5e576c339b0660251ef6a796efd.bindTooltip(
+                `<div>
+                     Setor 313380805000197 (rural): 414 hab (setor) → NOVA UBS (Setor 313380805000197 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c714294cb35aff7b39e66d06dca8e110 = L.circleMarker(
+                [-20.06465384797178, -44.68818851184598],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c714294cb35aff7b39e66d06dca8e110.bindTooltip(
+                `<div>
+                     Setor 313380805000198 (urbana): 263 hab (setor) → NOVA UBS (Setor 313380805000197 (rural)) (2.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a0a519124a9f7489608bfac8591a1ee5 = L.circleMarker(
+                [-20.022182305770464, -44.62825436183415],
+                {"bubblingMouseEvents": true, "color": "#c0392b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c0392b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.5787814100448805, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_a0a519124a9f7489608bfac8591a1ee5.bindTooltip(
+                `<div>
+                     Setor 313380805000199 (rural): 461 hab (setor) → NOVA UBS (Setor 313380805000115 (rural)) (3.8 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2b2a4acf307853863c07daf6cb681190 = L.circleMarker(
+                [-20.050922587568863, -44.61114631823005],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_2b2a4acf307853863c07daf6cb681190.bindTooltip(
+                `<div>
+                     Setor 313380805000200 (urbana): 26 hab (setor) → NOVA UBS (Residencial Victor Gonçalves de Souza) (2.3 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cd1540c8a269ab4bd05c8f10ac52530d = L.circleMarker(
+                [-20.06408077167815, -44.62212758779772],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_cd1540c8a269ab4bd05c8f10ac52530d.bindTooltip(
+                `<div>
+                     Setor 313380805000201 (urbana): 153 hab (setor) → NOVA UBS (Residencial Victor Gonçalves de Souza) (2.7 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc502ac4876f47604fefbed0911656dc = L.circleMarker(
+                [-20.094968492372697, -44.57869859777343],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_dc502ac4876f47604fefbed0911656dc.bindTooltip(
+                `<div>
+                     Setor 313380805000265 (urbana): 24 hab (setor) → UBS MORRO DO ENGENHO (1.4 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7739bd6193835cdcbbe956cc6d3c880 = L.circleMarker(
+                [-20.100341252955047, -44.55559575754699],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_c7739bd6193835cdcbbe956cc6d3c880.bindTooltip(
+                `<div>
+                     Setor 313380805000266 (urbana): 61 hab (setor) → UBS MORRO DO ENGENHO (1.2 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b52424c7fb0db493dc7923349bde6e09 = L.circleMarker(
+                [-20.14158808965094, -44.55304370700225],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b52424c7fb0db493dc7923349bde6e09.bindTooltip(
+                `<div>
+                     Setor 313380805000267 (rural): 166 hab (setor) → NOVA UBS (Setor 313380805000267 (rural)) (0.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b978436e1f2338837796a981e7c58857 = L.circleMarker(
+                [-20.077640626174865, -44.56606966623357],
+                {"bubblingMouseEvents": true, "color": "#e67e22", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e67e22", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.3475206513391225, "stroke": true, "weight": 1}
+            ).addTo(feature_group_5c13f2c408faf61e45b6b532204cc36b);
+        
+    
+            circle_marker_b978436e1f2338837796a981e7c58857.bindTooltip(
+                `<div>
+                     Setor 313380805000268 (urbana): 680 hab (setor) → UBS IRMAOS AULER (2.0 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_5c13f2c408faf61e45b6b532204cc36b.addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+        
+    
+            var feature_group_7db22c775554d57bbd94b24b6e0691ee = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6a4a30c084ec0a515aff32c79647bb6c = L.circleMarker(
+                [-20.081034105547577, -44.573882818222046],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_6a4a30c084ec0a515aff32c79647bb6c.bindTooltip(
+                `<div>
+                     UBS ALTO DO ROSARIO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_1d0c466fd97c11e21ecd537f43073fe6 = L.circle(
+                [-20.081034105547577, -44.573882818222046],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_1d0c466fd97c11e21ecd537f43073fe6.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_432e0a9dfc8d06fd662831ad88a66ea5 = L.circleMarker(
+                [-20.0734563130121, -44.57375407218933],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_432e0a9dfc8d06fd662831ad88a66ea5.bindTooltip(
+                `<div>
+                     UBS CENTRAL — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_103b930b209fa7ec553a1624220860c9 = L.circle(
+                [-20.0734563130121, -44.57375407218933],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_103b930b209fa7ec553a1624220860c9.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49872838dd443722b7da121355a2a767 = L.circleMarker(
+                [-20.10242528434975, -44.59654211997986],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_49872838dd443722b7da121355a2a767.bindTooltip(
+                `<div>
+                     UBS CIDADE NOVA — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_76bf6f72a6cbaf57f0ca1026cfa166a5 = L.circle(
+                [-20.10242528434975, -44.59654211997986],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_76bf6f72a6cbaf57f0ca1026cfa166a5.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ad5f6e83fdb07ea7b13c644904db14e = L.circleMarker(
+                [-20.09360920798122, -44.60088193416596],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_6ad5f6e83fdb07ea7b13c644904db14e.bindTooltip(
+                `<div>
+                     UBS GARCIAS — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_26dbf91120071cc109cb22eccd898baf = L.circle(
+                [-20.09360920798122, -44.60088193416596],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_26dbf91120071cc109cb22eccd898baf.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c0365b1b0e5b093ac67479a68914975 = L.circleMarker(
+                [-20.07026184125612, -44.58243906497955],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_9c0365b1b0e5b093ac67479a68914975.bindTooltip(
+                `<div>
+                     UBS GRACAS — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ba8ded6ce259e5c6abddfbff0fae8611 = L.circle(
+                [-20.07026184125612, -44.58243906497955],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_ba8ded6ce259e5c6abddfbff0fae8611.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ab98ce49eb977b9d1875a2ed151377e = L.circleMarker(
+                [-20.06628125699836, -44.55796122550965],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_1ab98ce49eb977b9d1875a2ed151377e.bindTooltip(
+                `<div>
+                     UBS IRMAOS AULER — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b7663f8a60672fc92e8b17db8aa278cc = L.circle(
+                [-20.06628125699836, -44.55796122550965],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_b7663f8a60672fc92e8b17db8aa278cc.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f60652bc71104d178d549c294063e006 = L.circleMarker(
+                [-20.094536178789227, -44.612597823143005],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_f60652bc71104d178d549c294063e006.bindTooltip(
+                `<div>
+                     UBS ITAUNENSE — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c0072b4454ad2d4ec4728e8167ea04c3 = L.circle(
+                [-20.094536178789227, -44.612597823143005],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_c0072b4454ad2d4ec4728e8167ea04c3.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4102c1b526e9c4d2390285bd9a0f24ac = L.circleMarker(
+                [-20.05645533182097, -44.56335783004761],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_4102c1b526e9c4d2390285bd9a0f24ac.bindTooltip(
+                `<div>
+                     UBS JADIR MARINHO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_28a0055c54a3735020053e27c4fa37df = L.circle(
+                [-20.05645533182097, -44.56335783004761],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_28a0055c54a3735020053e27c4fa37df.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21f2134e62fbbe9b1fa3e5ba08f0babf = L.circleMarker(
+                [-20.08394621826333, -44.56955909729004],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_21f2134e62fbbe9b1fa3e5ba08f0babf.bindTooltip(
+                `<div>
+                     UBS LOURDES — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_fcf9935d741ba4ff9e9648cb635eb31b = L.circle(
+                [-20.08394621826333, -44.56955909729004],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_fcf9935d741ba4ff9e9648cb635eb31b.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40100784109dafb846f11013306932dc = L.circleMarker(
+                [-20.09005241038501, -44.59082365036011],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_40100784109dafb846f11013306932dc.bindTooltip(
+                `<div>
+                     UBS MORADA NOVA — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b83493cc86b82c481fa10e4f09d96115 = L.circle(
+                [-20.09005241038501, -44.59082365036011],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_b83493cc86b82c481fa10e4f09d96115.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_005779095bf434e599000746728a6aeb = L.circleMarker(
+                [-20.09359913218144, -44.585657715797424],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_005779095bf434e599000746728a6aeb.bindTooltip(
+                `<div>
+                     UBS MORADA NOVA II — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_b78c75e088c0410709c3746872790f03 = L.circle(
+                [-20.09359913218144, -44.585657715797424],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_b78c75e088c0410709c3746872790f03.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de8df45ea77c0c6a5fa95508495ecf45 = L.circleMarker(
+                [-20.094616784687155, -44.56574231386185],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_de8df45ea77c0c6a5fa95508495ecf45.bindTooltip(
+                `<div>
+                     UBS MORRO DO ENGENHO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_6d00f471ffbab6ca15c738fb050a4d10 = L.circle(
+                [-20.094616784687155, -44.56574231386185],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_6d00f471ffbab6ca15c738fb050a4d10.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c6407c681d3aab388e15871384be71e1 = L.circleMarker(
+                [-20.085880879145417, -44.57048177719116],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_c6407c681d3aab388e15871384be71e1.bindTooltip(
+                `<div>
+                     UBS NOGUEIRA MACHADO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_df397bc672c54d479aeb4f0476aaaba5 = L.circle(
+                [-20.085880879145417, -44.57048177719116],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_df397bc672c54d479aeb4f0476aaaba5.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_110e662d85d74ae55a27cf7c085ce0da = L.circleMarker(
+                [-20.069072715275507, -44.5624566078186],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_110e662d85d74ae55a27cf7c085ce0da.bindTooltip(
+                `<div>
+                     UBS PADRE EUSTAQUIO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_45a92478683e1492f337a6c525e06afe = L.circle(
+                [-20.069072715275507, -44.5624566078186],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_45a92478683e1492f337a6c525e06afe.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e5767c0078b5939e899ab99abd03c9f6 = L.circleMarker(
+                [-20.085820421354423, -44.61062908172608],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_e5767c0078b5939e899ab99abd03c9f6.bindTooltip(
+                `<div>
+                     UBS PARQUE JARDIM SANTANENSE RESIDENCIAL SANTANENSE — 6.000 hab · 2 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_99515f4cb328025435d05de0c525d6f5 = L.circle(
+                [-20.085820421354423, -44.61062908172608],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_99515f4cb328025435d05de0c525d6f5.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a8bf0577c7ec106b386150d14cd9c3a = L.circleMarker(
+                [-20.08138678643799, -44.58522319793701],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_7a8bf0577c7ec106b386150d14cd9c3a.bindTooltip(
+                `<div>
+                     UBS PIEDADE — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_abd3adb55b477269f349f77139b69d0f = L.circle(
+                [-20.08138678643799, -44.58522319793701],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_abd3adb55b477269f349f77139b69d0f.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_716dc321648c77b42ba689ce1e4fe6d3 = L.circleMarker(
+                [-20.085235994838783, -44.57870006561279],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_716dc321648c77b42ba689ce1e4fe6d3.bindTooltip(
+                `<div>
+                     UBS PIO XII — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_9649f2ef2790bd4136769d41729504a7 = L.circle(
+                [-20.085235994838783, -44.57870006561279],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_9649f2ef2790bd4136769d41729504a7.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cbbb57157be73864863598356aef47f3 = L.circleMarker(
+                [-20.07476129142524, -44.60624635219574],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_cbbb57157be73864863598356aef47f3.bindTooltip(
+                `<div>
+                     UBS SANTANENSE — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_c7593623f951161da255eb9ce009b1ec = L.circle(
+                [-20.07476129142524, -44.60624635219574],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_c7593623f951161da255eb9ce009b1ec.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72d6b5a01a9042c827ab48a40994e6a8 = L.circleMarker(
+                [-20.088787863733906, -44.5942085981369],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_72d6b5a01a9042c827ab48a40994e6a8.bindTooltip(
+                `<div>
+                     UBS SAO GERALDO — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_06a43fcdb0f17dda6268961d537082cf = L.circle(
+                [-20.088787863733906, -44.5942085981369],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_06a43fcdb0f17dda6268961d537082cf.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d887f4c2ea89b8ba5c07db82e5193927 = L.circleMarker(
+                [-20.065107513090137, -44.552195060832446],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_d887f4c2ea89b8ba5c07db82e5193927.bindTooltip(
+                `<div>
+                     UBS VARZEA DA OLARIA — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bf1477939f5d11e96e685f578e8fec15 = L.circle(
+                [-20.065107513090137, -44.552195060832446],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_bf1477939f5d11e96e685f578e8fec15.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44691ba1e3a4ee9888124b476007d0fb = L.circleMarker(
+                [-20.06926418532208, -44.56935524940491],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_44691ba1e3a4ee9888124b476007d0fb.bindTooltip(
+                `<div>
+                     UBS VILA TAVARES — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7c6aee10fa0a0b818daa464ea2422580 = L.circle(
+                [-20.06926418532208, -44.56935524940491],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_7c6aee10fa0a0b818daa464ea2422580.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0538bf6238c0d32c6bd1f4ba4e441774 = L.circleMarker(
+                [-20.088742521234145, -44.59416568279266],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_0538bf6238c0d32c6bd1f4ba4e441774.bindTooltip(
+                `<div>
+                     UBS ZONA RURAL — 3.000 hab · 1 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_ca542929fe717c015c5624c32fc87fcf = L.circle(
+                [-20.088742521234145, -44.59416568279266],
+                {"bubblingMouseEvents": true, "color": "#969696", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#969696", "fillOpacity": 0.03, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_ca542929fe717c015c5624c32fc87fcf.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4936a557e517a88de0e0000a548b423c = L.circleMarker(
+                [-20.06608383746776, -44.59662617919186],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_4936a557e517a88de0e0000a548b423c.bindTooltip(
+                `<div>
+                     NOVA UBS (Residencial Victor Gonçalves de Souza) — 12.000 hab · 4 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_279a306eae05d72a41a9eb86d4cf4c1c = L.circle(
+                [-20.06608383746776, -44.59662617919186],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_279a306eae05d72a41a9eb86d4cf4c1c.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2de2e79516e8d992a671b7c88a896c16 = L.circleMarker(
+                [-20.018845846998705, -44.664657971984525],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_2de2e79516e8d992a671b7c88a896c16.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000115 (rural)) — 1.297 hab · 1 eSF · ocupação 43% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bdee88c0b59f34626ebc6b68ea55b36e = L.circle(
+                [-20.018845846998705, -44.664657971984525],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_bdee88c0b59f34626ebc6b68ea55b36e.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_13bf5c0dccc7d2cbebdf3ac0ffb1110b = L.circleMarker(
+                [-20.01136377449986, -44.5511183261318],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_13bf5c0dccc7d2cbebdf3ac0ffb1110b.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000174 (rural)) — 985 hab · 1 eSF · ocupação 33% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_a9198362e3f3f22864ad83ea1e12a85f = L.circle(
+                [-20.01136377449986, -44.5511183261318],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_a9198362e3f3f22864ad83ea1e12a85f.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_36fe4412e1219619d9205c8cf797a36d = L.circleMarker(
+                [-20.055393794379786, -44.53610700291973],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_36fe4412e1219619d9205c8cf797a36d.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000177 (urbana)) — 7.560 hab · 3 eSF · ocupação 84% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_7da9048a8d5bd74bd2f14bce5e49f3ec = L.circle(
+                [-20.055393794379786, -44.53610700291973],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_7da9048a8d5bd74bd2f14bce5e49f3ec.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_45ab6303c4e03986bad06380d1110723 = L.circleMarker(
+                [-20.18940935151268, -44.569843039629234],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_45ab6303c4e03986bad06380d1110723.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000185 (rural)) — 520 hab · 1 eSF · ocupação 17% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_cb4ded65b6053ae504ee7806568752cb = L.circle(
+                [-20.18940935151268, -44.569843039629234],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_cb4ded65b6053ae504ee7806568752cb.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4b1c903fc0170c614f902985be67a9d = L.circleMarker(
+                [-20.15235536933008, -44.59855614912637],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_a4b1c903fc0170c614f902985be67a9d.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000188 (rural)) — 821 hab · 1 eSF · ocupação 27% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_58d122d1cf73c85ad2c0e5ae1b5f9982 = L.circle(
+                [-20.15235536933008, -44.59855614912637],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_58d122d1cf73c85ad2c0e5ae1b5f9982.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6af8d43e78f77094e16be35463a9d2a4 = L.circleMarker(
+                [-20.117835499504817, -44.6002051933114],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_6af8d43e78f77094e16be35463a9d2a4.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000191 (urbana)) — 9.000 hab · 3 eSF · ocupação 100% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_aea6dab10bb314e1e60464f6549ba36f = L.circle(
+                [-20.117835499504817, -44.6002051933114],
+                {"bubblingMouseEvents": true, "color": "#7030A0", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7030A0", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_aea6dab10bb314e1e60464f6549ba36f.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e43edcb03a7b060b2c0515a046a49b7 = L.circleMarker(
+                [-20.04401688102675, -44.68259190061456],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_5e43edcb03a7b060b2c0515a046a49b7.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000197 (rural)) — 1.267 hab · 1 eSF · ocupação 42% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_76c57434be126bc99842bc127b6ca093 = L.circle(
+                [-20.04401688102675, -44.68259190061456],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_76c57434be126bc99842bc127b6ca093.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_994fd060e78a38c3d25a504ab3e5595c = L.circleMarker(
+                [-20.14158808965094, -44.55304370700225],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_marker_994fd060e78a38c3d25a504ab3e5595c.bindTooltip(
+                `<div>
+                     NOVA UBS (Setor 313380805000267 (rural)) — 1.553 hab · 1 eSF · ocupação 52% (Vinculacao do plano APS)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_bcb4c4d8c2194b83deaf6eccc4041c2e = L.circle(
+                [-20.14158808965094, -44.55304370700225],
+                {"bubblingMouseEvents": true, "color": "#D97706", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#D97706", "fillOpacity": 0.07, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_7db22c775554d57bbd94b24b6e0691ee);
+        
+    
+            circle_bcb4c4d8c2194b83deaf6eccc4041c2e.bindTooltip(
+                `<div>
+                     Critérios por origem: 3 km; círculo de 3 km
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_7db22c775554d57bbd94b24b6e0691ee.addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+        
+    
+        function geo_json_64716dc4478e48e9f09b3791dc5ba7d3_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "black", "fillOpacity": 0, "weight": 2};
+            }
+        }
+
+        function geo_json_64716dc4478e48e9f09b3791dc5ba7d3_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_64716dc4478e48e9f09b3791dc5ba7d3 = L.geoJson(null, {
+                onEachFeature: geo_json_64716dc4478e48e9f09b3791dc5ba7d3_onEachFeature,
+            
+                style: geo_json_64716dc4478e48e9f09b3791dc5ba7d3_styler,
+            ...{
+}
+        });
+
+        function geo_json_64716dc4478e48e9f09b3791dc5ba7d3_add (data) {
+            geo_json_64716dc4478e48e9f09b3791dc5ba7d3
+                .addData(data);
+        }
+            geo_json_64716dc4478e48e9f09b3791dc5ba7d3_add({"features": [{"geometry": {"coordinates": [[[-44.5570033658, -19.9800884265], [-44.5514514733, -19.9875562206], [-44.5462498881, -19.9827247586], [-44.5504155942, -19.9702201353], [-44.5417822348, -19.9671022073], [-44.5295801824, -19.9754788117], [-44.5242205087, -19.9749025502], [-44.5216681209, -19.9810596797], [-44.5136149513, -19.9830240308], [-44.5159500411, -19.9965072682], [-44.49825233, -20.0127975917], [-44.4988320673, -20.0173046805], [-44.4989741291, -20.0211673389], [-44.4963903671, -20.0281772952], [-44.5026261727, -20.0315259259], [-44.5072471561, -20.0328687658], [-44.5059717275, -20.0404685821], [-44.4982865378, -20.0567315793], [-44.5057208358, -20.0618193234], [-44.5051112331, -20.0668282946], [-44.4967988651, -20.0776309609], [-44.4875038222, -20.0753261894], [-44.4857793939, -20.0814714419], [-44.4808928727, -20.0780558956], [-44.4764250854, -20.0811900597], [-44.4759466277, -20.1041978971], [-44.4622674014, -20.1129091212], [-44.461247255, -20.1226003494], [-44.4452010359, -20.1474347657], [-44.4746690838, -20.1687450184], [-44.4923900478, -20.1525317303], [-44.507588248, -20.1697354651], [-44.5163306578, -20.1657455822], [-44.517216161, -20.1658213755], [-44.5309226519, -20.1643557771], [-44.535745413, -20.1699687897], [-44.5448639384, -20.167233606], [-44.5477568957, -20.1802138476], [-44.5443614574, -20.1873217587], [-44.5492276401, -20.201838375], [-44.5549179632, -20.2122697486], [-44.5655856891, -20.2176840524], [-44.5701596196, -20.2245534475], [-44.5823530999, -20.2089043631], [-44.5826136605, -20.204989796], [-44.5918087349, -20.1994171593], [-44.597060658, -20.2041440247], [-44.609554545, -20.2019474384], [-44.6157553433, -20.1973924402], [-44.61275131, -20.1893809704], [-44.6138594589, -20.1826014888], [-44.6195833281, -20.1786262026], [-44.6208281648, -20.1731448566], [-44.6177534808, -20.169697784], [-44.6214777403, -20.1603389119], [-44.6337811118, -20.1579093462], [-44.6414443736, -20.1502822443], [-44.6545870402, -20.1404546672], [-44.6633110102, -20.1406636908], [-44.66586951, -20.1289937119], [-44.6730287978, -20.1245569889], [-44.7166648921, -20.1080640656], [-44.71208277, -20.0899106132], [-44.7178460071, -20.0850219298], [-44.7146863828, -20.07468349], [-44.7131726753, -20.06805518], [-44.7170854924, -20.0609792461], [-44.7102556651, -20.0505996296], [-44.7151699758, -20.0390212175], [-44.7078339372, -20.0256592655], [-44.7000324629, -20.0277908541], [-44.6958918561, -20.0183650775], [-44.6960568463, -20.000218304], [-44.6930505014, -19.9952172706], [-44.6817513042, -19.9913214198], [-44.6768916752, -19.9859995298], [-44.6710613258, -19.9887130705], [-44.6603596474, -19.9871595845], [-44.6530071583, -19.9790509811], [-44.6433359526, -19.9785089726], [-44.6364796906, -19.9732361811], [-44.6359717442, -19.9670001546], [-44.6309159605, -19.9623846489], [-44.6125893573, -19.9579909239], [-44.6202236429, -19.9359679139], [-44.6094550043, -19.9450966727], [-44.5995619153, -19.956488302], [-44.5871707267, -19.9569402877], [-44.5751648166, -19.9641495305], [-44.5715406234, -19.973394994], [-44.5572257602, -19.9737924652], [-44.5570033658, -19.9800884265]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_64716dc4478e48e9f09b3791dc5ba7d3.addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+        
+    
+            var feature_group_4131796ddc4f0a2fe2a2a826dd24a490 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_bec84e74c27f89fe11570a82e9ed8ec4 = L.marker(
+                [-20.081034105547577, -44.573882818222046],
+                {
+}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            var icon_8f76def582cb69d075e853504de15886 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_bec84e74c27f89fe11570a82e9ed8ec4.bindTooltip(
+                `<div>
+                     EM1: 2 equipe(s)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bec84e74c27f89fe11570a82e9ed8ec4.setIcon(icon_8f76def582cb69d075e853504de15886);
+            
+    
+            var poly_line_fb50b1cbbbf674a5e04c587a50944047 = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-19.97257115088674, -44.601519992962416]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_fb50b1cbbbf674a5e04c587a50944047.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e6bf6d9fa69a404a6a10a62d124971b5 = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.085819787776742, -44.51445886080823]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_e6bf6d9fa69a404a6a10a62d124971b5.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ae19c82d47560c69fcc378a83ee7e001 = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.1408116601892, -44.49350004364612]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_ae19c82d47560c69fcc378a83ee7e001.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c4e4410707c842a8d6bf1ff2d7871022 = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.12670596926631, -44.524214208410754]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_c4e4410707c842a8d6bf1ff2d7871022.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8ac2232c978065bdf7874392a4770af0 = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.10317653807749, -44.66015832537298]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_8ac2232c978065bdf7874392a4770af0.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_23c7f308b151b6f967a840ee7da83eeb = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.07445648613817, -44.66752309969326]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_23c7f308b151b6f967a840ee7da83eeb.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d4c83f044be23c5d03ae1653e0a882df = L.polyline(
+                [[-20.081034105547577, -44.573882818222046], [-20.022182305770464, -44.62825436183415]],
+                {"bubblingMouseEvents": true, "color": "#008060", "dashArray": "5,5", "dashOffset": null, "fill": false, "fillColor": "#008060", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4131796ddc4f0a2fe2a2a826dd24a490);
+        
+    
+            poly_line_d4c83f044be23c5d03ae1653e0a882df.bindTooltip(
+                `<div>
+                     Ligacao esquematica base-ponto; nao e rota viaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_4131796ddc4f0a2fe2a2a826dd24a490.addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+        
+    
+            var layer_control_b207d94bc6db3f94c3e474d45efde13e_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_10948bc635bbc0f603be20d3022fc157,
+                },
+                overlays :  {
+                    "Demanda" : feature_group_5c13f2c408faf61e45b6b532204cc36b,
+                    "UBS e raio de cobertura" : feature_group_7db22c775554d57bbd94b24b6e0691ee,
+                    "Limite municipal de Itauna (IBGE)" : geo_json_64716dc4478e48e9f09b3791dc5ba7d3,
+                    "Equipes moveis adicionais (simulacao)" : feature_group_4131796ddc4f0a2fe2a2a826dd24a490,
+                },
+            };
+            let layer_control_b207d94bc6db3f94c3e474d45efde13e = L.control.layers(
+                layer_control_b207d94bc6db3f94c3e474d45efde13e_layers.base_layers,
+                layer_control_b207d94bc6db3f94c3e474d45efde13e_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_51e2510e622fee416a3c4a83ac25fd61);
+
+        
+</script>
+</html>

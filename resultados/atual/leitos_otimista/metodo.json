@@ -1,0 +1,18 @@
+{
+  "limite_superior_dias_leito": 6136.350317680732,
+  "hipotese": "Extremo favorável de disponibilidade geral sob a carga agregada estimada; não ocupação observada por tipo de leito.",
+  "alteracoes": [
+    "LEITO do hospital",
+    "HOSPITAL do hospital=1"
+  ],
+  "entradas_sha256": {
+    "unico_via_25": "d8e15985ac743ad8898c97214658d78972073ff82422ed83277f15c2098715e0",
+    "unico_via_50": "a1ff28ed57fb8e34ba0c42227acb7a933816416d1fc082c57cd7e476edf3c1ba",
+    "unico_via_75": "0c861b5c5c0b05b5367376a289ba09a5b9dce5bbc2cbcb2e35c40494ffd5b3a8",
+    "multiplo_via_25": "2a82db13382c527cfe189e6fb0898f7ccf4145fb4682cab3d05f2f904830f90a",
+    "multiplo_via_50": "95c150dbbd24734e4b07bea4a727a3a903ae2afa3f4b84f584a54311b719365a",
+    "multiplo_via_75": "512ebcb937ee19977e3815acaf91c642157428268b3bac90e1de429b8d251aad"
+  },
+  "conservado": "Demanda, capacidade ambulatorial, vinculos moveis/UBS, proporcoes, distancias e classificacoes dos seis cenarios.",
+  "unidade": "Internacoes/ano e dias-leito; contagem alocada não e o mesmo percentual de dias-leito."
+}

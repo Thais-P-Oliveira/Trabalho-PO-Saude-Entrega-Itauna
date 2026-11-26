@@ -1,0 +1,81 @@
+{
+  "status": "plano_completo_validado",
+  "entradas_conferidas": true,
+  "cenarios": 6,
+  "etapas": [
+    "APS: cobertura, custo e distancia",
+    "hierarquia: menor falta e deslocamento no plano APS fixado"
+  ],
+  "otimizacao_conjunta": false,
+  "plano_aps_fixo": true,
+  "otimalidade_aps_confirmada": true,
+  "origem_plano": "lexicografia_desta_execucao",
+  "certificados_solver_aps": [
+    {
+      "status": "Optimal",
+      "sol_status": "Optimal Solution Found"
+    },
+    {
+      "status": "Optimal",
+      "sol_status": "Optimal Solution Found"
+    },
+    {
+      "status": "Optimal",
+      "sol_status": "Optimal Solution Found"
+    }
+  ],
+  "parametros_aps": {
+    "demanda": "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\pontos_demanda_itauna.xlsx",
+    "ubs": "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\unidades_existentes_itauna.xlsx",
+    "raio": 3.0,
+    "raio_rural": null,
+    "fator_rota": 1.0,
+    "hab_esf": 3000,
+    "hab_min_esf": 2000,
+    "esf_max": 4,
+    "limites_equipes": "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\fontes_publicas\\estrutura_ubs_cnes\\limites_equipes_novas_ate4.xlsx",
+    "max_novas": null,
+    "hab_min_nova": 2000,
+    "hab_min_nova_rural": 500,
+    "dist_min_cand": 1.0,
+    "custo_km": 0.05,
+    "cobertura_min": null,
+    "growth": 6.484145429972665,
+    "growth_file": null,
+    "solver": "auto",
+    "time_limit": 600.0,
+    "gap": 0.0001,
+    "pareto": false,
+    "saida": "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\resultados\\atual\\plano\\aps",
+    "quiet": true,
+    "horizonte_anos": 5,
+    "orcamento_ap_anual": 50894556.87,
+    "reserva_moveis_anual": 2665364.0,
+    "comprometimento_adicional_anual": 0.0,
+    "preservar_acs_atuais": true,
+    "folga_custo": 0.02
+  },
+  "sha256": {
+    "codigos\\pessoal_cnes.py": "24a4cbea2031a3b585c946957822b034bdeb4f5fca9605154ca7617a28acc9e6",
+    "codigos\\vinculos_moveis.py": "996484b87b729b18b9ac24fabcd04b08c6df519a271ca471854c8f8370c30c2d",
+    "codigos\\integracao_resultados.py": "cfc36a1015ab7e9c09f90da6ef9c561603ede2bfee30b95802ce1b90d8ea9b8b",
+    "dados\\fontes\\fontes_publicas\\ubs_recursos_cnes_202607.xlsx": "73f8163e0fc40610d2821d5c5f3ecafc0585656e37a58aebb7fe77fb7ed6d7ac",
+    "modelos\\aps_base.py": "099e0acc07c5792f8032c3c9b11fe51eb5aa01855b6321fb9cd22ed664df6e6f",
+    "codigos\\planejar.py": "4976b103c6a3a47b1e85d1cddb23aa8793a94210da18e2375f990bba089fd364",
+    "modelos\\rede_completa.mod": "be25146d3c36edada91c15eb425446f57d9200111543b13f592c0e781174fb13",
+    "codigos\\preparar.py": "d9f41f40765662fea64bda2cd36d581db34f076e8a9e92625333d269cd387522",
+    "codigos\\projecao_populacional.py": "cda7196cb746a3b8923c8571e2945aff08e69da33e361f82181771a99f4e4659",
+    "dados\\fontes\\fontes_publicas\\populacao_ibge\\projecao.json": "64be897c9064e199495888bd070f5134946354fcc01a121bf93703e9bd6c85c0",
+    "codigos\\capacidade_hospitalar.py": "b85f568d32a09e0fcceec00603ecd0e8606b91f7f16f9fdf36237d275e81fbed",
+    "codigos\\encaminhamentos.py": "6fa44f967f4aa0508bee3762b457adcf9b8845a03bd595e6dcca438fb4ee55b7",
+    "dados\\fontes\\fontes_publicas\\leitos_hospital_cnes\\leitos_sus_202607.xlsx": "e2f61a15480f6eee502c53b9943c7ab1f0df204ba7c3d67116d70f506809d64d",
+    "dados\\fontes\\fontes_publicas\\leitos_hospital_cnes\\fonte.json": "4630249d4bb0558b880f1dc3ac460256c762c5909dc85efab017ece8a44ae064",
+    "dados\\fontes\\cenarios_niveis\\demanda_integrada\\parametros_sus_2015\\carga_hospitalar_observada_2025.xlsx": "398a31123b9c3f58989ab65113aabd5aae5aee5391586a68142c7e9f3959e76e",
+    "dados\\fontes\\cenarios_niveis\\demanda_integrada\\parametros_sus_2015\\configuracao.json": "f11c18b3d0742d5e6ed74181b9b95b5fdd8c56ba1535644970ff6016559d782b",
+    "dados\\fontes\\demanda_especializada\\demanda_ambulatorial_clinica_residentes_2025.xlsx": "9d7d69ddf3d270da5a28482b7c8a8a0d4756d42dd716b44bca105b432d4a5868",
+    "dados\\fontes\\demanda_especializada\\sia_residentes_eletivo_procedimento_idade_2025.xlsx": "5ddb9e971fab31e29e43ebea7822c762396d4d580cfa2f8c11fc1a263d7a65b1",
+    "dados\\fontes\\demanda_especializada\\sih_residentes_eletivo_morbidade_idade_2025.xlsx": "ead64e9a9858203006de26f1c7deedb4b9d6063c6379423bd1a051ad8d00658a",
+    "dados\\fontes\\fontes_publicas\\estrutura_ubs_cnes\\limites_equipes_novas_ate4.xlsx": "9a8e79af563a5d88f2c5975594595d6848e7f08ed6a9fc1066b2af7736d5e68d"
+  },
+  "auditoria_integracao": "PASSOU"
+}

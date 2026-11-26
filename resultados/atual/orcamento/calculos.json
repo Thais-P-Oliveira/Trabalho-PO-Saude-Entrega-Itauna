@@ -1,0 +1,189 @@
+{
+  "plano": "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\resultados\\atual\\plano\\plano_aps.json",
+  "folga_custo": 0.02,
+  "custo_aps_mensal": "2997069.1388888895",
+  "custo_aps_anual": "35964829.6666666740",
+  "custo_ubs_sem_moveis_mensal": "2913843.1388888895",
+  "equipes_moveis": {
+    "equipes": 2,
+    "acs": 4,
+    "equipes_mensal": 64494.44444444445,
+    "acs_mensal": 18731.55555555556,
+    "fixo_mensal": 0.0,
+    "total_mensal": 83226.00000000001,
+    "total_anual": 998712.0000000002,
+    "escopo": "Pessoal adicional (eSF e ACS); veiculo, combustivel e equipamentos nao precificados"
+  },
+  "operacao_por_grupo": [
+    {
+      "grupo": "UBS existentes",
+      "unidades": 22,
+      "fixo_mensal": "264000.0",
+      "equipes_mensal": "1099772.91666666689",
+      "acs_mensal": "660287.3333333333578125",
+      "total_mensal": "2024060.2500000002478125",
+      "total_anual": "24288723.0000000029737500"
+    },
+    {
+      "grupo": "UBS novas",
+      "unidades": 9,
+      "fixo_mensal": "135000.0",
+      "equipes_mensal": "515955.555555555636",
+      "acs_mensal": "238827.3333333333421875",
+      "total_mensal": "889782.8888888889781875",
+      "total_anual": "10677394.6666666677382500"
+    },
+    {
+      "grupo": "Equipes moveis adicionais",
+      "unidades": 2,
+      "fixo_mensal": "0",
+      "equipes_mensal": "64494.44444444445",
+      "acs_mensal": "18731.55555555556",
+      "total_mensal": "83226.00000000001",
+      "total_anual": "998712.0000000002"
+    }
+  ],
+  "investimento_construcao": "22848000",
+  "horizonte_otimizacao_anos": 5,
+  "objetivo_com_proxy_anual": "35027464.5908057220",
+  "referencia_oficial": "RREO 2026, 4o bimestre (janeiro a agosto), Anexo 02",
+  "fonte_rreo": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2026&nr_periodo=4&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo+02&id_ente=3133808",
+  "fonte_loa": "https://sapl.itauna.mg.leg.br/media/sapl/public/normajuridica/2025/11182/lei_6273-2026_-_loa_2026.pdf",
+  "dados_oficiais": [
+    {
+      "conta": "Saúde",
+      "coluna": "DOTAÇÃO INICIAL",
+      "exceto_intra": "170603787.13",
+      "intra": "3092700",
+      "total": "173696487.13"
+    },
+    {
+      "conta": "Saúde",
+      "coluna": "DOTAÇÃO ATUALIZADA (a)",
+      "exceto_intra": "196939664.71",
+      "intra": "2865719.55",
+      "total": "199805384.26"
+    },
+    {
+      "conta": "Saúde",
+      "coluna": "DESPESAS EMPENHADAS ATÉ O BIMESTRE (b)",
+      "exceto_intra": "141101026.7",
+      "intra": "1833615.69",
+      "total": "142934642.39"
+    },
+    {
+      "conta": "Saúde",
+      "coluna": "DESPESAS LIQUIDADAS ATÉ O BIMESTRE (d)",
+      "exceto_intra": "107890878.99",
+      "intra": "1728567.53",
+      "total": "109619446.52"
+    },
+    {
+      "conta": "Atenção Básica",
+      "coluna": "DOTAÇÃO INICIAL",
+      "exceto_intra": "49852322.78",
+      "intra": "33000",
+      "total": "49885322.78"
+    },
+    {
+      "conta": "Atenção Básica",
+      "coluna": "DOTAÇÃO ATUALIZADA (a)",
+      "exceto_intra": "50833556.53",
+      "intra": "61000.34",
+      "total": "50894556.87"
+    },
+    {
+      "conta": "Atenção Básica",
+      "coluna": "DESPESAS EMPENHADAS ATÉ O BIMESTRE (b)",
+      "exceto_intra": "27330729.48",
+      "intra": "58000",
+      "total": "27388729.48"
+    },
+    {
+      "conta": "Atenção Básica",
+      "coluna": "DESPESAS LIQUIDADAS ATÉ O BIMESTRE (d)",
+      "exceto_intra": "22960771.36",
+      "intra": "32163.1",
+      "total": "22992934.46"
+    },
+    {
+      "conta": "Assistência Hospitalar e Ambulatorial",
+      "coluna": "DOTAÇÃO INICIAL",
+      "exceto_intra": "101805944.35",
+      "intra": "222000",
+      "total": "102027944.35"
+    },
+    {
+      "conta": "Assistência Hospitalar e Ambulatorial",
+      "coluna": "DOTAÇÃO ATUALIZADA (a)",
+      "exceto_intra": "119828344.78",
+      "intra": "170400",
+      "total": "119998744.78"
+    },
+    {
+      "conta": "Assistência Hospitalar e Ambulatorial",
+      "coluna": "DESPESAS EMPENHADAS ATÉ O BIMESTRE (b)",
+      "exceto_intra": "97553860.48",
+      "intra": "100000",
+      "total": "97653860.48"
+    },
+    {
+      "conta": "Assistência Hospitalar e Ambulatorial",
+      "coluna": "DESPESAS LIQUIDADAS ATÉ O BIMESTRE (d)",
+      "exceto_intra": "71340469.51",
+      "intra": "44872.22",
+      "total": "71385341.73"
+    }
+  ],
+  "comparacoes": [
+    {
+      "conta": "Saúde",
+      "referencia": "DOTAÇÃO INICIAL",
+      "orcamento_anual": "173696487.13",
+      "custo_modelo_aps_anual": "35964829.6666666740",
+      "proporcao_modelo_pct": "20.70555960049407707327880489",
+      "investimento_construcao": "22848000"
+    },
+    {
+      "conta": "Saúde",
+      "referencia": "DOTAÇÃO ATUALIZADA (a)",
+      "orcamento_anual": "199805384.26",
+      "custo_modelo_aps_anual": "35964829.6666666740",
+      "proporcao_modelo_pct": "17.99993018199492338345256963",
+      "investimento_construcao": "22848000"
+    },
+    {
+      "conta": "Atenção Básica",
+      "referencia": "DOTAÇÃO INICIAL",
+      "orcamento_anual": "49885322.78",
+      "custo_modelo_aps_anual": "35964829.6666666740",
+      "proporcao_modelo_pct": "72.09501244539541495976664902",
+      "investimento_construcao": "22848000"
+    },
+    {
+      "conta": "Atenção Básica",
+      "referencia": "DOTAÇÃO ATUALIZADA (a)",
+      "orcamento_anual": "50894556.87",
+      "custo_modelo_aps_anual": "35964829.6666666740",
+      "proporcao_modelo_pct": "70.66537539275891921131486610",
+      "investimento_construcao": "22848000"
+    }
+  ],
+  "sha256": {
+    "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\fontes_publicas\\orcamento\\siconfi_rreo_2026_b4_anexo02.json": "9282a0b4b028b3947235d6691c3f6fdf57c47806cd237937ea5a014854ffd376",
+    "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\fontes_publicas\\orcamento\\loa_2026_aprovada.pdf": "f87a60adbb1904a091409dfd883e1c0d26266aa754863c12b6eed65dee0dcdd4",
+    "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\resultados\\atual\\plano\\plano_aps.json": "97734b47e56dffb605a1f3c2c351af61a82a23d7cdba9643d5bb66a55027ae7a",
+    "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\dados\\fontes\\custos_construcao_ubs_2025.xlsx": "bba2c5f8806d0ba0447ee316d1e567a7551eea885ecda16f89f6783b8040aa1b",
+    "C:\\Users\\luana.ottoni_chammas\\Desktop\\aula\\PO saúde\\Trabalho_PO_Saude_Entrega\\resultados\\atual\\plano\\aps\\ubs_completas.csv": "30ae6b50df7356599c1f23e7ccc8ac9cde9f1ac8dd08e4aa8f58f37a067b0f36"
+  },
+  "limites": [
+    "Operacao e investimento da APS separados; valores estimados, nao despesas executadas.",
+    "Custos unitarios do modelo sao premissas, sem atualizacao monetaria para 2026.",
+    "Construcao apresentada separadamente como investimento unico; terrenos, equipamentos e outros servicos da atencao basica nao estao integralmente orcados.",
+    "Nao inclui custo operacional da secundaria e terciaria.",
+    "Dotacao atualizada nao e saldo livre nem garantia de disponibilidade financeira.",
+    "Diferenca nao demonstra economia ou viabilidade financeira da implantacao.",
+    "O modelo possui teto operacional; total com moveis e conferido antes da publicacao. Isso nao comprova saldo financeiro livre.",
+    "Equipes moveis: inclui pessoal e encargos estimados; veiculo, combustivel e equipamentos nao precificados."
+  ]
+}

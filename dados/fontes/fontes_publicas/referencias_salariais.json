@@ -1,0 +1,29 @@
+{
+  "consulta": "2026-11-25",
+  "jornada_modelo_horas": 40,
+  "jornada_piso_enfermagem_horas": 44,
+  "referencias": {
+    "medico": 14000,
+    "enfermeiro": 5000,
+    "tecnico": 3325,
+    "auxiliar": 2375,
+    "acs": 3242
+  },
+  "criterio": "Valores integrais de tecnico e auxiliar da Lei 14.434/2022 adotados como referencias de 40h por escolha do estudo; sem reducao proporcional. Medico 14000 e enfermeiro 5000 mantidos como hipoteses remuneratorias. Nao representa folha municipal.",
+  "fontes": [
+    "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14434.htm",
+    "https://www.saude.mg.gov.br/pisodaenfermagem/",
+    "https://www.planalto.gov.br/ccivil_03/leis/1950-1969/l3999.htm"
+  ],
+  "medico_referencia_local_historica": {
+    "valor": 14488,
+    "jornada_horas": 40,
+    "lei": "Lei Complementar 158/2020, anexo Medico ESF Celetista",
+    "fonte": "https://www.itauna.mg.gov.br/portal/leis_decretos/11812/",
+    "nota": "Valor historico localizado; reajustes posteriores e folha 2026 nao consolidados. O cenario solicitado mantem 14000 como hipotese, nao como salario legal comprovado."
+  },
+  "financiamento_federal": {
+    "fonte": "https://www.gov.br/saude/pt-br/composicao/saps/esf/faq-novo-modelo-de-cofinanciamento-federal-da-aps",
+    "criterio": "Repasses de cofinanciamento nao equivalem ao custo total por UBS nem a salario profissional."
+  }
+}

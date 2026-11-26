@@ -1,0 +1,3 @@
+﻿indicador;percentual;denominador;referencia;metodo;fonte
+Proximidade geografica das UBS atuais;93.40220540806193;104002.0;"Populacao local da base; coordenadas das 22 UBS";Populacao dentro do criterio 3 km urbano / 3 km rural de alguma UBS / populacao local;"pontos_demanda_itauna.csv; unidades_existentes_itauna.csv"
+Cobertura efetiva da rede atual (3 km + capacidade eSF e ACS);65.62373800503838;104002.0;"Equipes e ACS do CNES 07/2026; 3.000 hab/eSF; 750 hab/ACS";Fluxo maximo: populacao alocavel dentro do raio sem exceder min(3000*eSF, 750*ACS) por UBS;"ubs_recursos_cnes_202607.csv; pontos_demanda_itauna.csv"

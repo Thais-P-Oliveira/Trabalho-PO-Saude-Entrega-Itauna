@@ -1,0 +1,23 @@
+{
+  "base": "pontos_demanda_itauna.xlsx",
+  "ano": 2022,
+  "bairros": {
+    "pontos": 51,
+    "populacao": 85609,
+    "fonte": "IBGE Censo 2022, agregados por bairro, codigo CD_BAIRRO"
+  },
+  "setores": {
+    "pontos": 40,
+    "populacao": 12060,
+    "urbanos": 27,
+    "rurais": 13,
+    "fonte": "IBGE Censo 2022, agregados por setor, codigo CD_setor"
+  },
+  "total": 97669,
+  "conferencia_codigos": "91 de 91 encontrados nos arquivos demograficos IBGE consultados",
+  "fonte_bairros": "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Bairro_csv/Agregados_por_bairros_demografia_BR.zip",
+  "fonte_setores": "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Setor_csv/Agregados_por_setores_demografia_BR.zip",
+  "criterio": "Base mista herdada da preparacao inicial do projeto; agrega bairros e mantem setores selecionados como pontos individuais para reduzir a dimensao. O script original de selecao espacial e de calculo das coordenadas nao foi localizado. A verificacao por codigos e soma municipal nao substitui a verificacao de sobreposicao dos poligonos.",
+  "divergencia": "Fazenda da Chacara: 35 moradores na base, zero no agregado demografico consultado. Populacao do projeto mantida nesta revisao.",
+  "registro_ausente": "Cidade Universitaria aparece no agregado por bairro com V01006=\".\" e nao consta como ponto de bairro. Nao foi comprovado o criterio original de exclusao."
+}

@@ -1,0 +1,13 @@
+.venv/
+.cache/
+__pycache__/
+*.pyc
+/documentacao/artigo/*.log
+/documentacao/artigo/*.aux
+/documentacao/artigo/*.toc
+/documentacao/artigo/*.lof
+/documentacao/artigo/*.lot
+/documentacao/artigo/*.out
+/documentacao/artigo/*.fls
+/documentacao/artigo/*.fdb_latexmk
+/documentacao/artigo/*.synctex.gz
